@@ -123,7 +123,7 @@ Run `python data_process.py --action merge_all --dataset CWQ --split test` and `
 
 Run `python data_process.py --action get_type_label_map --dataset CWQ --split train`. The merged data file will be saved as `data/CWQ/generation/label_maps/CWQ_train_type_label_map.json`.
 
-**Note:** You can also get the ChatKBQA processed data from [TeraBox](https://terabox.com/s/1Oa7mz7WlrlqdWRaH_9nnUg) or [Baidu Netdisk](https://pan.baidu.com/s/1ikNCCCtYd9izN0Ok3ozdZA?pwd=j6jk), which should be set in `data/`.
+**Note:** You can also get the ChatKBQA processed data from [TeraBox](https://1024terabox.com/s/1T3ckf32YJJ-SJCJd1zUNlg) or [Baidu Netdisk](https://pan.baidu.com/s/1ikNCCCtYd9izN0Ok3ozdZA?pwd=j6jk), which should be set in `data/`.
 ```
 ChatKBQA/
 └── data/
@@ -147,7 +147,7 @@ Run `python process_NQ.py --dataset_type WebQSP`. The merged data file will be s
 
 Run `python process_NQ.py --dataset_type CWQ` The merged data file will be saved as `LLMs/data/CWQ_Freebase_NQ_test[train]/examples.json`.
 
-**Note:** You can also get the processed ChatKBQA SFT data from [TeraBox](https://terabox.com/s/1YdKSzU3ScdQGkE-6lHV_fA) or [Baidu Netdisk](https://pan.baidu.com/s/1dazyWIQ8nYt5YiLt8yjFSw?pwd=uvd9), which should be set in `LLMs/data`.
+**Note:** You can also get the processed ChatKBQA SFT data from [TeraBox](https://1024terabox.com/s/1XHzWc5qQoaq2ncMfh81PxQ) or [Baidu Netdisk](https://pan.baidu.com/s/1dazyWIQ8nYt5YiLt8yjFSw?pwd=uvd9), which should be set in `LLMs/data`.
 ```
 ChatKBQA/
 └── LLMs/
@@ -222,7 +222,7 @@ Evaluate KBQA result with golden-entities and relation-retrieval:
 CUDA_VISIBLE_DEVICES=5 nohup python -u eval_final_cwq.py --dataset CWQ --pred_file Reading/LLaMA2-13b/CWQ_Freebase_NQ_lora_epoch10/evaluation_beam/beam_test_top_k_predictions.json --golden_ent >> predfinalgoldent_LLaMA2-13b_CWQ_Freebase_NQ_lora_epoch10.txt 2>&1 &
 ```
 
-**Note:** You can also get the ChatKBQA checkpoints and evaluations from [TeraBox](https://terabox.com/s/1Iq8u4M1lQHI2iIMYTNJmUw) or [Baidu Netdisk](https://pan.baidu.com/s/1I5j_FktPF5R0hI1In1qlkQ?pwd=53p5), which should be set in `Reading/`.
+**Note:** You can also get the ChatKBQA checkpoints and evaluations from [TeraBox](https://1024terabox.com/s/1ZCCauq7KC5vys-zSjdcNdA) or [Baidu Netdisk](https://pan.baidu.com/s/1I5j_FktPF5R0hI1In1qlkQ?pwd=53p5), which should be set in `Reading/`.
 ```
 ChatKBQA/
 └── Reading/
