@@ -246,3 +246,18 @@ markitdown/
 # DVC cache
 .dvc/cache/
 .dvc/tmp/
+
+# Removed LaTeX source folders (final PDFs in docs/)
+ChatKBQA_Beamer/
+report_template/
+
+# Removed internal dev docs (keep only 7 required docs)
+docs/project_memory/
+docs/report.md
+docs/seminar_prep.md
+docs/tchatkbqa_data_training_eval.md
+docs/tchatkbqa_improvements.md
+docs/TKGQA_Training_Data_Creation.md
+docs/data_pipeline.md
+docs/tools.md
+docs/vast_ai_remote_env_runbook.md

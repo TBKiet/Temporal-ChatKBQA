@@ -35,7 +35,6 @@ Temporal ChatKBQA is a **Generate-then-Retrieve** KBQA framework extended with t
 | [Ethics Statement](docs/ethics_statement.md)       | Beneficiaries, harms, bias, explainability       |
 | [Written Report](docs/report.pdf)                     | Comprehensive final report (PDF)                 |
 | [Presentation Slides](docs/slides.pdf)                | Presentation slide deck (PDF)                    |
-| [Presentation Slides (PPTX)](docs/slides.pptx)        | Presentation slide deck (PPTX)                   |
 
 Note: the trained LoRA checkpoint is not committed to the repository. The code, configs, and runbooks are included so the experiment can be reproduced; lightweight unit tests run locally, while full training and Freebase-heavy evaluation are expected to run on Vast.ai.
 
