@@ -394,48 +394,85 @@ python eval_temporal.py \
 
 Metrics: **F1**, **Hits@1**, **Accuracy**, and **Temporal F1** (subset of temporal questions only).
 
-### Deployment
+## Quick Start: Commands
 
-**REST API:**
+### 1. Setup Environment
 ```bash
-pip install fastapi uvicorn pyyaml
-# Edit configs/inference.yaml with your model path
+conda create -n chatkbqa python=3.8 -y
+conda activate chatkbqa
+pip install torch==1.13.1+cu117 torchvision==0.14.1+cu117 torchaudio==0.13.1 \
+  --extra-index-url https://download.pytorch.org/whl/cu117
+pip install -r requirements.txt
+```
+
+### 2. Run Tests (no external services needed)
+```bash
+python -m unittest tests.test_temporal_parser -v
+# Expected: 19 tests passed, OK
+```
+
+### 3. Run CLI Agent Routing Demo (no LLM/GPU needed)
+```bash
+python -m src.cli --demo
+# Expected: 6 questions with temporal signal detection + routing decisions
+```
+
+### 4. Run Streamlit Degraded Demo (no LLM/GPU/Freebase needed)
+```bash
+pip install streamlit
+streamlit run src/streamlit_app.py
+# Opens browser at http://localhost:8501
+# Uses recorded trial artifacts — no live model required
+```
+
+### 5. Run Full API (requires: LLaMA-2 base, LoRA checkpoint, Freebase/Virtuoso)
+```bash
+export TKBQA_CONFIG=configs/inference.yaml
 uvicorn src.api:app --host 0.0.0.0 --port 8000
 # Test:
 curl -X POST http://localhost:8000/ask \
   -H "Content-Type: application/json" \
   -d '{"question": "Who was US president before Obama?"}'
+# Expected: JSON with answer, temporal_signals, sparql_used, reasoning_steps, retries
 ```
 
-**CLI:**
+### 6. Run Evaluation Harness (requires full stack)
 ```bash
-# Agent routing demo (no LLM/Freebase required):
-python -m src.cli --demo
+# Beam search inference on TempQuestions test
+CUDA_VISIBLE_DEVICES=0 python -u LLMs/LLaMA/src/beam_output_eva.py \
+  --model_name_or_path meta-llama/Llama-2-7b-hf \
+  --dataset_dir LLMs/data \
+  --dataset TChatKBQA_Freebase_NQ_test \
+  --template llama2 \
+  --finetuning_type lora \
+  --checkpoint_dir models/LLaMA2-7b-tchatkbqa-trial/checkpoint \
+  --num_beams 5
 
-# Answer a single question:
-python -m src.cli --question "Who held the position of US president during WWII?"
+# Convert beam output to predictions
+python run_generator_final.py \
+  --data_file_name models/LLaMA2-7b-tchatkbqa-trial/evaluation_beam/generated_predictions.jsonl
 
-# Interactive mode:
-python -m src.cli --interactive
+# Evaluate against TempQuestions
+python eval_temporal.py \
+  --pred_file models/LLaMA2-7b-tchatkbqa-trial/evaluation_beam/beam_test_top_k_predictions.json \
+  --dataset TempQuestions
 ```
 
-**Docker:**
-```bash
-docker build -t temporal-KBQA .
-docker run -p 8000:8000 temporal-KBQA
-```
+## Expected Output / Known Limitations
 
-**Streamlit Demo:**
-```bash
-pip install streamlit
-streamlit run src/streamlit_app.py
-```
+| Mode | What runs | What it shows |
+|------|-----------|---------------|
+| `--demo` | Signal detection only | 6 questions with temporal vs. standard routing |
+| Streamlit | Recorded artifacts | Architecture, ablation, example walkthrough |
+| Full API | Live LLM + Freebase | Real S-expression generation + SPARQL execution |
 
-The Streamlit app provides an interactive presentation/demo surface with:
-- Real temporal signal detection from `src/agent.py`
-- Recorded trial artifacts from the locked v1 experiment
-- Architecture and ablation summaries
-- Degraded/offline fallback when full LLM + Freebase assets are not available
+**Known limitations:**
+- **Answer-level F1 ≈ 0.0** on TempQuestions due to relation hallucination (model generates plausible but non-existent Freebase relations; only 22 relations in training)
+- **No TC/during operators** in v1 training data — model cannot learn temporal range constraints
+- Full live mode requires LLaMA-2-7B base model, LoRA checkpoint, Freebase/Virtuoso SPARQL endpoint, and ELQ entity linking service
+- Training was run on Vast.ai GPU instance; local training requires ~16GB VRAM
+
+### Deployment
 
 ### Agentic AI Component
 
