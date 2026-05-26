@@ -1,0 +1,25 @@
+# T-ChatKBQA DVC pipeline parameters
+# Override via: dvc repro --set-param mine.max_total=5000
+
+mine:
+  variant: "FB+CVT+REV"
+  max_per_rel: 200
+  max_total: 10000
+  data_dir: "data/zenodo/extracted"   # Path to extracted Zenodo idirlab/freebases
+
+generate:
+  seed: 42
+  whitelist: "configs/relation_whitelist.yaml"
+
+verify:
+  timeout: 30                         # SPARQL query timeout (seconds)
+  skip: true                          # Skip verification by default (needs Virtuoso)
+
+filter:
+  max_per_family: 500
+  max_per_type: 1000
+  max_per_date_bucket: 200
+  seed: 42
+  human_input: ""                     # Optional: canonical human samples JSON
+  allow_suspicious_human: false
+  max_synthetic: null                 # null = no cap

@@ -1,0 +1,3486 @@
+[
+  {
+    "instruction": "Generate a Logical Form query for this temporal question, using TC operators for date constraints and ARGMAX/ARGMIN for ordinal constraints.\n",
+    "input": "Question: { what happened to justin bieber 2012? }",
+    "output": "(JOIN (R government.government_position_held) m.0d060g)",
+    "history": [],
+    "metadata": {
+      "sample_id": "341",
+      "source": "human",
+      "temporal_type": "explicit_date",
+      "source_dataset": "TempQuestions",
+      "validation_status": "normalized"
+    }
+  },
+  {
+    "instruction": "Generate a Logical Form query for this temporal question, using TC operators for date constraints and ARGMAX/ARGMIN for ordinal constraints.\n",
+    "input": "Question: { who is the leader of japan right now? }",
+    "output": "(JOIN (R government.government_position_held) m.0d060g)",
+    "history": [],
+    "metadata": {
+      "sample_id": "1068",
+      "source": "human",
+      "temporal_type": "explicit_date",
+      "source_dataset": "TempQuestions",
+      "validation_status": "normalized"
+    }
+  },
+  {
+    "instruction": "Generate a Logical Form query for this temporal question, using TC operators for date constraints and ARGMAX/ARGMIN for ordinal constraints.\n",
+    "input": "Question: { who is the current governor of arizona 2010? }",
+    "output": "(JOIN (R government.government_position_held) m.0d060g)",
+    "history": [],
+    "metadata": {
+      "sample_id": "1050",
+      "source": "human",
+      "temporal_type": "explicit_date",
+      "source_dataset": "TempQuestions",
+      "validation_status": "normalized"
+    }
+  },
+  {
+    "instruction": "Generate a Logical Form query for this temporal question, using TC operators for date constraints and ARGMAX/ARGMIN for ordinal constraints.\n",
+    "input": "Question: { what was the purpose of the 1964 gulf of tonkin resolution? }",
+    "output": "(JOIN (R government.government_position_held) m.01_2n)",
+    "history": [],
+    "metadata": {
+      "sample_id": "407",
+      "source": "human",
+      "temporal_type": "explicit_date",
+      "source_dataset": "TempQuestions",
+      "validation_status": "normalized"
+    }
+  },
+  {
+    "instruction": "Generate a Logical Form query for this temporal question, using TC operators for date constraints and ARGMAX/ARGMIN for ordinal constraints.\n",
+    "input": "Question: { who was the first jedi master? }",
+    "output": "(ARGMIN (JOIN (R government.government_position_held) m.01_2n) government.government_position_held.from)",
+    "history": [],
+    "metadata": {
+      "sample_id": "321",
+      "source": "human",
+      "temporal_type": "first",
+      "source_dataset": "TempQuestions",
+      "validation_status": "normalized"
+    }
+  },
+  {
+    "instruction": "Generate a Logical Form query for this temporal question, using TC operators for date constraints and ARGMAX/ARGMIN for ordinal constraints.\n",
+    "input": "Question: { which dawkins book to read first? }",
+    "output": "(ARGMIN (JOIN (R government.government_position_held) m.015lwh) government.government_position_held.from)",
+    "history": [],
+    "metadata": {
+      "sample_id": "431",
+      "source": "human",
+      "temporal_type": "first",
+      "source_dataset": "TempQuestions",
+      "validation_status": "normalized"
+    }
+  },
+  {
+    "instruction": "Generate a Logical Form query for this temporal question, using TC operators for date constraints and ARGMAX/ARGMIN for ordinal constraints.\n",
+    "input": "Question: { what team is reggie bush on 2011? }",
+    "output": "(JOIN (R sports.pro_athlete.teams) m.0d060g)",
+    "history": [],
+    "metadata": {
+      "sample_id": "128",
+      "source": "human",
+      "temporal_type": "explicit_date",
+      "source_dataset": "TempQuestions",
+      "validation_status": "normalized"
+    }
+  },
+  {
+    "instruction": "Generate a Logical Form query for this temporal question, using TC operators for date constraints and ARGMAX/ARGMIN for ordinal constraints.\n",
+    "input": "Question: { who is the president of brazil now? }",
+    "output": "(JOIN (R government.government_position_held) m.0d060g)",
+    "history": [],
+    "metadata": {
+      "sample_id": "1247",
+      "source": "human",
+      "temporal_type": "explicit_date",
+      "source_dataset": "TempQuestions",
+      "validation_status": "normalized"
+    }
+  },
+  {
+    "instruction": "Generate a Logical Form query for this temporal question, using TC operators for date constraints and ARGMAX/ARGMIN for ordinal constraints.\n",
+    "input": "Question: { what is the official language of brazil now? }",
+    "output": "(JOIN (R government.government_position_held) m.02mjmr)",
+    "history": [],
+    "metadata": {
+      "sample_id": "418",
+      "source": "human",
+      "temporal_type": "explicit_date",
+      "source_dataset": "TempQuestions",
+      "validation_status": "normalized"
+    }
+  },
+  {
+    "instruction": "Generate a Logical Form query for this temporal question, using TC operators for date constraints and ARGMAX/ARGMIN for ordinal constraints.\n",
+    "input": "Question: { what team does reggie bush play for 2011? }",
+    "output": "(JOIN (R sports.pro_athlete.teams) m.02mjmr)",
+    "history": [],
+    "metadata": {
+      "sample_id": "987",
+      "source": "human",
+      "temporal_type": "explicit_date",
+      "source_dataset": "TempQuestions",
+      "validation_status": "normalized"
+    }
+  },
+  {
+    "instruction": "Generate a Logical Form query for this temporal question, using TC operators for date constraints and ARGMAX/ARGMIN for ordinal constraints.\n",
+    "input": "Question: { who will coach carolina panthers in 2013? }",
+    "output": "(TC (JOIN (R sports.pro_athlete.teams) m.0d060g) sports.sports_team_roster.from 1939-01-01)",
+    "history": [],
+    "metadata": {
+      "sample_id": "392",
+      "source": "human",
+      "temporal_type": "during",
+      "source_dataset": "TempQuestions",
+      "validation_status": "normalized"
+    }
+  },
+  {
+    "instruction": "Generate a Logical Form query for this temporal question, using TC operators for date constraints and ARGMAX/ARGMIN for ordinal constraints.\n",
+    "input": "Question: { how many people were at the 2006 fifa world cup final? }",
+    "output": "(JOIN (R government.government_position_held) m.01_2n)",
+    "history": [],
+    "metadata": {
+      "sample_id": "115",
+      "source": "human",
+      "temporal_type": "explicit_date",
+      "source_dataset": "TempQuestions",
+      "validation_status": "normalized"
+    }
+  },
+  {
+    "instruction": "Generate a Logical Form query for this temporal question, using TC operators for date constraints and ARGMAX/ARGMIN for ordinal constraints.\n",
+    "input": "Question: { who was london mayor before boris johnson? }",
+    "output": "(TC (JOIN (R government.government_position_held) m.02mjmr) government.government_position_held.from 2016-12-31)",
+    "history": [],
+    "metadata": {
+      "sample_id": "829",
+      "source": "human",
+      "temporal_type": "before",
+      "source_dataset": "TempQuestions",
+      "validation_status": "normalized"
+    }
+  },
+  {
+    "instruction": "Generate a Logical Form query for this temporal question, using TC operators for date constraints and ARGMAX/ARGMIN for ordinal constraints.\n",
+    "input": "Question: { where does kate middleton live 2012? }",
+    "output": "(JOIN (R government.government_position_held) m.01_2n)",
+    "history": [],
+    "metadata": {
+      "sample_id": "559",
+      "source": "human",
+      "temporal_type": "explicit_date",
+      "source_dataset": "TempQuestions",
+      "validation_status": "normalized"
+    }
+  },
+  {
+    "instruction": "Generate a Logical Form query for this temporal question, using TC operators for date constraints and ARGMAX/ARGMIN for ordinal constraints.\n",
+    "input": "Question: { what currency is used in germany 2012? }",
+    "output": "(JOIN (R government.government_position_held) m.015lwh)",
+    "history": [],
+    "metadata": {
+      "sample_id": "366",
+      "source": "human",
+      "temporal_type": "during",
+      "source_dataset": "TempQuestions",
+      "validation_status": "normalized"
+    }
+  },
+  {
+    "instruction": "Generate a Logical Form query for this temporal question, using TC operators for date constraints and ARGMAX/ARGMIN for ordinal constraints.\n",
+    "input": "Question: { who did president obama run against in 2008? }",
+    "output": "(TC (JOIN (R government.government_position_held) m.015lwh) government.government_position_held.from 1939-01-01)",
+    "history": [],
+    "metadata": {
+      "sample_id": "300",
+      "source": "human",
+      "temporal_type": "during",
+      "source_dataset": "TempQuestions",
+      "validation_status": "normalized"
+    }
+  },
+  {
+    "instruction": "Generate a Logical Form query for this temporal question, using TC operators for date constraints and ARGMAX/ARGMIN for ordinal constraints.\n",
+    "input": "Question: { what kind of government does the united states have currently? }",
+    "output": "(JOIN (R government.government_position_held) m.01_2n)",
+    "history": [],
+    "metadata": {
+      "sample_id": "971",
+      "source": "human",
+      "temporal_type": "explicit_date",
+      "source_dataset": "TempQuestions",
+      "validation_status": "normalized"
+    }
+  },
+  {
+    "instruction": "Generate a Logical Form query for this temporal question, using TC operators for date constraints and ARGMAX/ARGMIN for ordinal constraints.\n",
+    "input": "Question: { who won fa cup 1976? }",
+    "output": "(JOIN (R government.government_position_held) m.0443c)",
+    "history": [],
+    "metadata": {
+      "sample_id": "497",
+      "source": "human",
+      "temporal_type": "explicit_date",
+      "source_dataset": "TempQuestions",
+      "validation_status": "normalized"
+    }
+  },
+  {
+    "instruction": "Generate a Logical Form query for this temporal question, using TC operators for date constraints and ARGMAX/ARGMIN for ordinal constraints.\n",
+    "input": "Question: { how many teams participated in the 1979 cricket world cup? }",
+    "output": "(JOIN (R sports.pro_athlete.teams) m.02mjmr)",
+    "history": [],
+    "metadata": {
+      "sample_id": "851",
+      "source": "human",
+      "temporal_type": "during",
+      "source_dataset": "TempQuestions",
+      "validation_status": "normalized"
+    }
+  },
+  {
+    "instruction": "Generate a Logical Form query for this temporal question, using TC operators for date constraints and ARGMAX/ARGMIN for ordinal constraints.\n",
+    "input": "Question: { who does david beckham play for in 2012? }",
+    "output": "(TC (JOIN (R sports.pro_athlete.teams) m.015lwh) sports.sports_team_roster.from 1939-01-01)",
+    "history": [],
+    "metadata": {
+      "sample_id": "65",
+      "source": "human",
+      "temporal_type": "during",
+      "source_dataset": "TempQuestions",
+      "validation_status": "normalized"
+    }
+  },
+  {
+    "instruction": "Generate a Logical Form query for this temporal question, using TC operators for date constraints and ARGMAX/ARGMIN for ordinal constraints.\n",
+    "input": "Question: { in which comic book issue did kitty pryde first appear? }",
+    "output": "(ARGMIN (JOIN (R government.government_position_held) m.0443c) government.government_position_held.from)",
+    "history": [],
+    "metadata": {
+      "sample_id": "1107",
+      "source": "human",
+      "temporal_type": "first",
+      "source_dataset": "TempQuestions",
+      "validation_status": "normalized"
+    }
+  },
+  {
+    "instruction": "Generate a Logical Form query for this temporal question, using TC operators for date constraints and ARGMAX/ARGMIN for ordinal constraints.\n",
+    "input": "Question: { who won the state of texas in 2008? }",
+    "output": "(TC (JOIN (R government.government_position_held) m.0443c) government.government_position_held.from 1939-01-01)",
+    "history": [],
+    "metadata": {
+      "sample_id": "982",
+      "source": "human",
+      "temporal_type": "during",
+      "source_dataset": "TempQuestions",
+      "validation_status": "normalized"
+    }
+  },
+  {
+    "instruction": "Generate a Logical Form query for this temporal question, using TC operators for date constraints and ARGMAX/ARGMIN for ordinal constraints.\n",
+    "input": "Question: { which country did eric of sweden conquered in 1157? }",
+    "output": "(TC (JOIN (R government.government_position_held) m.02mjmr) government.government_position_held.from 1939-01-01)",
+    "history": [],
+    "metadata": {
+      "sample_id": "324",
+      "source": "human",
+      "temporal_type": "during",
+      "source_dataset": "TempQuestions",
+      "validation_status": "normalized"
+    }
+  },
+  {
+    "instruction": "Generate a Logical Form query for this temporal question, using TC operators for date constraints and ARGMAX/ARGMIN for ordinal constraints.\n",
+    "input": "Question: { where to travel in africa in january? }",
+    "output": "(TC (JOIN (R government.government_position_held) m.02mjmr) government.government_position_held.from 1939-01-01)",
+    "history": [],
+    "metadata": {
+      "sample_id": "695",
+      "source": "human",
+      "temporal_type": "during",
+      "source_dataset": "TempQuestions",
+      "validation_status": "normalized"
+    }
+  },
+  {
+    "instruction": "Generate a Logical Form query for this temporal question, using TC operators for date constraints and ARGMAX/ARGMIN for ordinal constraints.\n",
+    "input": "Question: { what did charles lindbergh became famous for in the 1920s? }",
+    "output": "(TC (JOIN (R government.government_position_held) m.0443c) government.government_position_held.from 1939-01-01)",
+    "history": [],
+    "metadata": {
+      "sample_id": "643",
+      "source": "human",
+      "temporal_type": "during",
+      "source_dataset": "TempQuestions",
+      "validation_status": "normalized"
+    }
+  },
+  {
+    "instruction": "Generate a Logical Form query for this temporal question, using TC operators for date constraints and ARGMAX/ARGMIN for ordinal constraints.\n",
+    "input": "Question: { when was george w bush sworn in? }",
+    "output": "(JOIN (R government.government_position_held) m.0d060g)",
+    "history": [],
+    "metadata": {
+      "sample_id": "1153",
+      "source": "human",
+      "temporal_type": "during",
+      "source_dataset": "TempQuestions",
+      "validation_status": "normalized"
+    }
+  },
+  {
+    "instruction": "Generate a Logical Form query for this temporal question, using TC operators for date constraints and ARGMAX/ARGMIN for ordinal constraints.\n",
+    "input": "Question: { who fought in the gulf war 1991? }",
+    "output": "(JOIN (R government.government_position_held) m.0443c)",
+    "history": [],
+    "metadata": {
+      "sample_id": "697",
+      "source": "human",
+      "temporal_type": "during",
+      "source_dataset": "TempQuestions",
+      "validation_status": "normalized"
+    }
+  },
+  {
+    "instruction": "Generate a Logical Form query for this temporal question, using TC operators for date constraints and ARGMAX/ARGMIN for ordinal constraints.\n",
+    "input": "Question: { what did james k polk do before he was president? }",
+    "output": "(TC (JOIN (R government.government_position_held) m.0443c) government.government_position_held.from 2009-12-31)",
+    "history": [],
+    "metadata": {
+      "sample_id": "398",
+      "source": "human",
+      "temporal_type": "before",
+      "source_dataset": "TempQuestions",
+      "validation_status": "normalized"
+    }
+  },
+  {
+    "instruction": "Generate a Logical Form query for this temporal question, using TC operators for date constraints and ARGMAX/ARGMIN for ordinal constraints.\n",
+    "input": "Question: { who played the lead in the 2001 film a beautiful mind? }",
+    "output": "(JOIN (R sports.pro_athlete.teams) m.015lwh)",
+    "history": [],
+    "metadata": {
+      "sample_id": "1062",
+      "source": "human",
+      "temporal_type": "during",
+      "source_dataset": "TempQuestions",
+      "validation_status": "normalized"
+    }
+  },
+  {
+    "instruction": "Generate a Logical Form query for this temporal question, using TC operators for date constraints and ARGMAX/ARGMIN for ordinal constraints.\n",
+    "input": "Question: { when was the last time the ny knicks won a playoff game? }",
+    "output": "(ARGMAX (JOIN (R sports.pro_athlete.teams) m.0d060g) sports.sports_team_roster.from)",
+    "history": [],
+    "metadata": {
+      "sample_id": "512",
+      "source": "human",
+      "temporal_type": "last",
+      "source_dataset": "TempQuestions",
+      "validation_status": "normalized"
+    }
+  },
+  {
+    "instruction": "Generate a Logical Form query for this temporal question, using TC operators for date constraints and ARGMAX/ARGMIN for ordinal constraints.\n",
+    "input": "Question: { when was the last time the la kings won a playoff series? }",
+    "output": "(ARGMAX (JOIN (R sports.pro_athlete.teams) m.01_2n) sports.sports_team_roster.from)",
+    "history": [],
+    "metadata": {
+      "sample_id": "795",
+      "source": "human",
+      "temporal_type": "last",
+      "source_dataset": "TempQuestions",
+      "validation_status": "normalized"
+    }
+  },
+  {
+    "instruction": "Generate a Logical Form query for this temporal question, using TC operators for date constraints and ARGMAX/ARGMIN for ordinal constraints.\n",
+    "input": "Question: { who was sworn into office when john f kennedy was assassinated? }",
+    "output": "(TC (JOIN (R government.government_position_held) m.0443c) government.government_position_held.from 1939-01-01)",
+    "history": [],
+    "metadata": {
+      "sample_id": "1133",
+      "source": "human",
+      "temporal_type": "during",
+      "source_dataset": "TempQuestions",
+      "validation_status": "normalized"
+    }
+  },
+  {
+    "instruction": "Generate a Logical Form query for this temporal question, using TC operators for date constraints and ARGMAX/ARGMIN for ordinal constraints.\n",
+    "input": "Question: { who won fedex cup in 2012? }",
+    "output": "(TC (JOIN (R government.government_position_held) m.01_2n) government.government_position_held.from 1939-01-01)",
+    "history": [],
+    "metadata": {
+      "sample_id": "135",
+      "source": "human",
+      "temporal_type": "during",
+      "source_dataset": "TempQuestions",
+      "validation_status": "normalized"
+    }
+  },
+  {
+    "instruction": "Generate a Logical Form query for this temporal question, using TC operators for date constraints and ARGMAX/ARGMIN for ordinal constraints.\n",
+    "input": "Question: { who played neurologist oliver sacks in the 1990 film awakenings? }",
+    "output": "(JOIN (R sports.pro_athlete.teams) m.0443c)",
+    "history": [],
+    "metadata": {
+      "sample_id": "1162",
+      "source": "human",
+      "temporal_type": "during",
+      "source_dataset": "TempQuestions",
+      "validation_status": "normalized"
+    }
+  },
+  {
+    "instruction": "Generate a Logical Form query for this temporal question, using TC operators for date constraints and ARGMAX/ARGMIN for ordinal constraints.\n",
+    "input": "Question: { who was the first african american presidential candidate nominated? }",
+    "output": "(ARGMIN (JOIN (R government.government_position_held) m.02mjmr) government.government_position_held.from)",
+    "history": [],
+    "metadata": {
+      "sample_id": "1130",
+      "source": "human",
+      "temporal_type": "first",
+      "source_dataset": "TempQuestions",
+      "validation_status": "normalized"
+    }
+  },
+  {
+    "instruction": "Generate a Logical Form query for this temporal question, using TC operators for date constraints and ARGMAX/ARGMIN for ordinal constraints.\n",
+    "input": "Question: { what is the transmission of a 2011 honda fit? }",
+    "output": "(JOIN (R government.government_position_held) m.0d060g)",
+    "history": [],
+    "metadata": {
+      "sample_id": "958",
+      "source": "human",
+      "temporal_type": "explicit_date",
+      "source_dataset": "TempQuestions",
+      "validation_status": "normalized"
+    }
+  },
+  {
+    "instruction": "Generate a Logical Form query for this temporal question, using TC operators for date constraints and ARGMAX/ARGMIN for ordinal constraints.\n",
+    "input": "Question: { who was a dictator of germany during world war 1 world war 2? }",
+    "output": "(TC (JOIN (R government.government_position_held) m.0d060g) government.government_position_held.from 1939-01-01)",
+    "history": [],
+    "metadata": {
+      "sample_id": "182",
+      "source": "human",
+      "temporal_type": "during",
+      "source_dataset": "TempQuestions",
+      "validation_status": "normalized"
+    }
+  },
+  {
+    "instruction": "Generate a Logical Form query for this temporal question, using TC operators for date constraints and ARGMAX/ARGMIN for ordinal constraints.\n",
+    "input": "Question: { which book did roald dahl write in 1990? }",
+    "output": "(TC (JOIN (R government.government_position_held) m.02mjmr) government.government_position_held.from 1939-01-01)",
+    "history": [],
+    "metadata": {
+      "sample_id": "974",
+      "source": "human",
+      "temporal_type": "during",
+      "source_dataset": "TempQuestions",
+      "validation_status": "normalized"
+    }
+  },
+  {
+    "instruction": "Generate a Logical Form query for this temporal question, using TC operators for date constraints and ARGMAX/ARGMIN for ordinal constraints.\n",
+    "input": "Question: { in 1982 who were the primetieme emmy award for comedy series nominees? }",
+    "output": "(TC (JOIN (R government.government_position_held) m.0d060g) government.government_position_held.from 1939-01-01)",
+    "history": [],
+    "metadata": {
+      "sample_id": "944",
+      "source": "human",
+      "temporal_type": "during",
+      "source_dataset": "TempQuestions",
+      "validation_status": "normalized"
+    }
+  },
+  {
+    "instruction": "Generate a Logical Form query for this temporal question, using TC operators for date constraints and ARGMAX/ARGMIN for ordinal constraints.\n",
+    "input": "Question: { who was the leader of the nation of islam in 1996? }",
+    "output": "(TC (JOIN (R government.government_position_held) m.02mjmr) government.government_position_held.from 1939-01-01)",
+    "history": [],
+    "metadata": {
+      "sample_id": "266",
+      "source": "human",
+      "temporal_type": "during",
+      "source_dataset": "TempQuestions",
+      "validation_status": "normalized"
+    }
+  },
+  {
+    "instruction": "Generate a Logical Form query for this temporal question, using TC operators for date constraints and ARGMAX/ARGMIN for ordinal constraints.\n",
+    "input": "Question: { what year did michael jordan get drafted? }",
+    "output": "(JOIN (R government.government_position_held) m.0443c)",
+    "history": [],
+    "metadata": {
+      "sample_id": "1265",
+      "source": "human",
+      "temporal_type": "explicit_date",
+      "source_dataset": "TempQuestions",
+      "validation_status": "normalized"
+    }
+  },
+  {
+    "instruction": "Generate a Logical Form query for this temporal question, using TC operators for date constraints and ARGMAX/ARGMIN for ordinal constraints.\n",
+    "input": "Question: { when did hurricane irene hit ct? }",
+    "output": "(JOIN (R government.government_position_held) m.015lwh)",
+    "history": [],
+    "metadata": {
+      "sample_id": "564",
+      "source": "human",
+      "temporal_type": "during",
+      "source_dataset": "TempQuestions",
+      "validation_status": "normalized"
+    }
+  },
+  {
+    "instruction": "Generate a Logical Form query for this temporal question, using TC operators for date constraints and ARGMAX/ARGMIN for ordinal constraints.\n",
+    "input": "Question: { what currency does greece use 2012? }",
+    "output": "(JOIN (R government.government_position_held) m.0443c)",
+    "history": [],
+    "metadata": {
+      "sample_id": "629",
+      "source": "human",
+      "temporal_type": "explicit_date",
+      "source_dataset": "TempQuestions",
+      "validation_status": "normalized"
+    }
+  },
+  {
+    "instruction": "Generate a Logical Form query for this temporal question, using TC operators for date constraints and ARGMAX/ARGMIN for ordinal constraints.\n",
+    "input": "Question: { what is the government of spain today? }",
+    "output": "(JOIN (R government.government_position_held) m.02mjmr)",
+    "history": [],
+    "metadata": {
+      "sample_id": "732",
+      "source": "human",
+      "temporal_type": "explicit_date",
+      "source_dataset": "TempQuestions",
+      "validation_status": "normalized"
+    }
+  },
+  {
+    "instruction": "Generate a Logical Form query for this temporal question, using TC operators for date constraints and ARGMAX/ARGMIN for ordinal constraints.\n",
+    "input": "Question: { for what country did bernard lagat play in the 2000 summer olympics? }",
+    "output": "(JOIN (R sports.pro_athlete.teams) m.0443c)",
+    "history": [],
+    "metadata": {
+      "sample_id": "899",
+      "source": "human",
+      "temporal_type": "during",
+      "source_dataset": "TempQuestions",
+      "validation_status": "normalized"
+    }
+  },
+  {
+    "instruction": "Generate a Logical Form query for this temporal question, using TC operators for date constraints and ARGMAX/ARGMIN for ordinal constraints.\n",
+    "input": "Question: { what contribution did hooke made to science in 1665? }",
+    "output": "(TC (JOIN (R government.government_position_held) m.0443c) government.government_position_held.from 1939-01-01)",
+    "history": [],
+    "metadata": {
+      "sample_id": "941",
+      "source": "human",
+      "temporal_type": "during",
+      "source_dataset": "TempQuestions",
+      "validation_status": "normalized"
+    }
+  },
+  {
+    "instruction": "Generate a Logical Form query for this temporal question, using TC operators for date constraints and ARGMAX/ARGMIN for ordinal constraints.\n",
+    "input": "Question: { who does spiderman fight after the lizard? }",
+    "output": "(TC (JOIN (R government.government_position_held) m.0443c) government.government_position_held.to 2008-01-01)",
+    "history": [],
+    "metadata": {
+      "sample_id": "914",
+      "source": "human",
+      "temporal_type": "after",
+      "source_dataset": "TempQuestions",
+      "validation_status": "normalized"
+    }
+  },
+  {
+    "instruction": "Generate a Logical Form query for this temporal question, using TC operators for date constraints and ARGMAX/ARGMIN for ordinal constraints.\n",
+    "input": "Question: { who will sponsor kevin harvick in 2011? }",
+    "output": "(TC (JOIN (R government.government_position_held) m.0d060g) government.government_position_held.from 1939-01-01)",
+    "history": [],
+    "metadata": {
+      "sample_id": "234",
+      "source": "human",
+      "temporal_type": "during",
+      "source_dataset": "TempQuestions",
+      "validation_status": "normalized"
+    }
+  },
+  {
+    "instruction": "Generate a Logical Form query for this temporal question, using TC operators for date constraints and ARGMAX/ARGMIN for ordinal constraints.\n",
+    "input": "Question: { what form of government does russia have today? }",
+    "output": "(JOIN (R government.government_position_held) m.01_2n)",
+    "history": [],
+    "metadata": {
+      "sample_id": "686",
+      "source": "human",
+      "temporal_type": "explicit_date",
+      "source_dataset": "TempQuestions",
+      "validation_status": "normalized"
+    }
+  },
+  {
+    "instruction": "Generate a Logical Form query for this temporal question, using TC operators for date constraints and ARGMAX/ARGMIN for ordinal constraints.\n",
+    "input": "Question: { who did nasri play for before arsenal? }",
+    "output": "(TC (JOIN (R sports.pro_athlete.teams) m.02mjmr) sports.sports_team_roster.from 2016-12-31)",
+    "history": [],
+    "metadata": {
+      "sample_id": "180",
+      "source": "human",
+      "temporal_type": "before",
+      "source_dataset": "TempQuestions",
+      "validation_status": "normalized"
+    }
+  },
+  {
+    "instruction": "Generate a Logical Form query for this temporal question, using TC operators for date constraints and ARGMAX/ARGMIN for ordinal constraints.\n",
+    "input": "Question: { who is governor of ohio 2011? }",
+    "output": "(JOIN (R government.government_position_held) m.02mjmr)",
+    "history": [],
+    "metadata": {
+      "sample_id": "215",
+      "source": "human",
+      "temporal_type": "explicit_date",
+      "source_dataset": "TempQuestions",
+      "validation_status": "normalized"
+    }
+  },
+  {
+    "instruction": "Generate a Logical Form query for this temporal question, using TC operators for date constraints and ARGMAX/ARGMIN for ordinal constraints.\n",
+    "input": "Question: { what jobs did john adams have before he was president? }",
+    "output": "(TC (JOIN (R government.government_position_held) m.02mjmr) government.government_position_held.from 2012-12-31)",
+    "history": [],
+    "metadata": {
+      "sample_id": "297",
+      "source": "human",
+      "temporal_type": "before",
+      "source_dataset": "TempQuestions",
+      "validation_status": "normalized"
+    }
+  },
+  {
+    "instruction": "Generate a Logical Form query for this temporal question, using TC operators for date constraints and ARGMAX/ARGMIN for ordinal constraints.\n",
+    "input": "Question: { what teams played in the 2010 stanley cup? }",
+    "output": "(JOIN (R sports.pro_athlete.teams) m.015lwh)",
+    "history": [],
+    "metadata": {
+      "sample_id": "273",
+      "source": "human",
+      "temporal_type": "during",
+      "source_dataset": "TempQuestions",
+      "validation_status": "normalized"
+    }
+  },
+  {
+    "instruction": "Generate a Logical Form query for this temporal question, using TC operators for date constraints and ARGMAX/ARGMIN for ordinal constraints.\n",
+    "input": "Question: { who is the governor of oregon 2012? }",
+    "output": "(JOIN (R government.government_position_held) m.0443c)",
+    "history": [],
+    "metadata": {
+      "sample_id": "843",
+      "source": "human",
+      "temporal_type": "explicit_date",
+      "source_dataset": "TempQuestions",
+      "validation_status": "normalized"
+    }
+  },
+  {
+    "instruction": "Generate a Logical Form query for this temporal question, using TC operators for date constraints and ARGMAX/ARGMIN for ordinal constraints.\n",
+    "input": "Question: { what club did aguero play for before man city? }",
+    "output": "(TC (JOIN (R sports.pro_athlete.teams) m.02mjmr) sports.sports_team_roster.from 2016-12-31)",
+    "history": [],
+    "metadata": {
+      "sample_id": "937",
+      "source": "human",
+      "temporal_type": "before",
+      "source_dataset": "TempQuestions",
+      "validation_status": "normalized"
+    }
+  },
+  {
+    "instruction": "Generate a Logical Form query for this temporal question, using TC operators for date constraints and ARGMAX/ARGMIN for ordinal constraints.\n",
+    "input": "Question: { what did hans oersted discovered in 1819? }",
+    "output": "(TC (JOIN (R government.government_position_held) m.0d060g) government.government_position_held.from 1939-01-01)",
+    "history": [],
+    "metadata": {
+      "sample_id": "1063",
+      "source": "human",
+      "temporal_type": "during",
+      "source_dataset": "TempQuestions",
+      "validation_status": "normalized"
+    }
+  },
+  {
+    "instruction": "Generate a Logical Form query for this temporal question, using TC operators for date constraints and ARGMAX/ARGMIN for ordinal constraints.\n",
+    "input": "Question: { what sport did scott anderson play in the 1992 summer olympics? }",
+    "output": "(JOIN (R sports.pro_athlete.teams) m.0d060g)",
+    "history": [],
+    "metadata": {
+      "sample_id": "1017",
+      "source": "human",
+      "temporal_type": "during",
+      "source_dataset": "TempQuestions",
+      "validation_status": "normalized"
+    }
+  },
+  {
+    "instruction": "Generate a Logical Form query for this temporal question, using TC operators for date constraints and ARGMAX/ARGMIN for ordinal constraints.\n",
+    "input": "Question: { what team did michael jordan play for after the bulls? }",
+    "output": "(TC (JOIN (R sports.pro_athlete.teams) m.0443c) sports.sports_team_roster.to 2004-01-01)",
+    "history": [],
+    "metadata": {
+      "sample_id": "424",
+      "source": "human",
+      "temporal_type": "after",
+      "source_dataset": "TempQuestions",
+      "validation_status": "normalized"
+    }
+  },
+  {
+    "instruction": "Generate a Logical Form query for this temporal question, using TC operators for date constraints and ARGMAX/ARGMIN for ordinal constraints.\n",
+    "input": "Question: { who did nigeria gain independence from in 1960? }",
+    "output": "(TC (JOIN (R government.government_position_held) m.0443c) government.government_position_held.from 1939-01-01)",
+    "history": [],
+    "metadata": {
+      "sample_id": "513",
+      "source": "human",
+      "temporal_type": "during",
+      "source_dataset": "TempQuestions",
+      "validation_status": "normalized"
+    }
+  },
+  {
+    "instruction": "Generate a Logical Form query for this temporal question, using TC operators for date constraints and ARGMAX/ARGMIN for ordinal constraints.\n",
+    "input": "Question: { what did tecumseh do during the war of 1812? }",
+    "output": "(TC (JOIN (R government.government_position_held) m.01_2n) government.government_position_held.from 1939-01-01)",
+    "history": [],
+    "metadata": {
+      "sample_id": "1226",
+      "source": "human",
+      "temporal_type": "during",
+      "source_dataset": "TempQuestions",
+      "validation_status": "normalized"
+    }
+  },
+  {
+    "instruction": "Generate a Logical Form query for this temporal question, using TC operators for date constraints and ARGMAX/ARGMIN for ordinal constraints.\n",
+    "input": "Question: { what year was kevin durant drafted? }",
+    "output": "(JOIN (R government.government_position_held) m.0443c)",
+    "history": [],
+    "metadata": {
+      "sample_id": "826",
+      "source": "human",
+      "temporal_type": "explicit_date",
+      "source_dataset": "TempQuestions",
+      "validation_status": "normalized"
+    }
+  },
+  {
+    "instruction": "Generate a Logical Form query for this temporal question, using TC operators for date constraints and ARGMAX/ARGMIN for ordinal constraints.\n",
+    "input": "Question: { who are the senators of new jersey now? }",
+    "output": "(JOIN (R government.government_position_held) m.015lwh)",
+    "history": [],
+    "metadata": {
+      "sample_id": "735",
+      "source": "human",
+      "temporal_type": "explicit_date",
+      "source_dataset": "TempQuestions",
+      "validation_status": "normalized"
+    }
+  },
+  {
+    "instruction": "Generate a Logical Form query for this temporal question, using TC operators for date constraints and ARGMAX/ARGMIN for ordinal constraints.\n",
+    "input": "Question: { who was the quarterback for the bears before cutler? }",
+    "output": "(TC (JOIN (R government.government_position_held) m.015lwh) government.government_position_held.from 2009-12-31)",
+    "history": [],
+    "metadata": {
+      "sample_id": "669",
+      "source": "human",
+      "temporal_type": "before",
+      "source_dataset": "TempQuestions",
+      "validation_status": "normalized"
+    }
+  },
+  {
+    "instruction": "Generate a Logical Form query for this temporal question, using TC operators for date constraints and ARGMAX/ARGMIN for ordinal constraints.\n",
+    "input": "Question: { who did the chargers draft in 2011? }",
+    "output": "(TC (JOIN (R government.government_position_held) m.0443c) government.government_position_held.from 1939-01-01)",
+    "history": [],
+    "metadata": {
+      "sample_id": "258",
+      "source": "human",
+      "temporal_type": "during",
+      "source_dataset": "TempQuestions",
+      "validation_status": "normalized"
+    }
+  },
+  {
+    "instruction": "Generate a Logical Form query for this temporal question, using TC operators for date constraints and ARGMAX/ARGMIN for ordinal constraints.\n",
+    "input": "Question: { when is rhubarb in season in michigan? }",
+    "output": "(JOIN (R government.government_position_held) m.02mjmr)",
+    "history": [],
+    "metadata": {
+      "sample_id": "114",
+      "source": "human",
+      "temporal_type": "during",
+      "source_dataset": "TempQuestions",
+      "validation_status": "normalized"
+    }
+  },
+  {
+    "instruction": "Generate a Logical Form query for this temporal question, using TC operators for date constraints and ARGMAX/ARGMIN for ordinal constraints.\n",
+    "input": "Question: { who was with president lincoln when he was assassinated? }",
+    "output": "(TC (JOIN (R government.government_position_held) m.01_2n) government.government_position_held.from 1939-01-01)",
+    "history": [],
+    "metadata": {
+      "sample_id": "161",
+      "source": "human",
+      "temporal_type": "during",
+      "source_dataset": "TempQuestions",
+      "validation_status": "normalized"
+    }
+  },
+  {
+    "instruction": "Generate a Logical Form query for this temporal question, using TC operators for date constraints and ARGMAX/ARGMIN for ordinal constraints.\n",
+    "input": "Question: { who is the current governor of georgia 2011? }",
+    "output": "(JOIN (R government.government_position_held) m.015lwh)",
+    "history": [],
+    "metadata": {
+      "sample_id": "1018",
+      "source": "human",
+      "temporal_type": "explicit_date",
+      "source_dataset": "TempQuestions",
+      "validation_status": "normalized"
+    }
+  },
+  {
+    "instruction": "Generate a Logical Form query for this temporal question, using TC operators for date constraints and ARGMAX/ARGMIN for ordinal constraints.\n",
+    "input": "Question: { when did sherlock holmes live? }",
+    "output": "(JOIN (R government.government_position_held) m.01_2n)",
+    "history": [],
+    "metadata": {
+      "sample_id": "428",
+      "source": "human",
+      "temporal_type": "during",
+      "source_dataset": "TempQuestions",
+      "validation_status": "normalized"
+    }
+  },
+  {
+    "instruction": "Generate a Logical Form query for this temporal question, using TC operators for date constraints and ARGMAX/ARGMIN for ordinal constraints.\n",
+    "input": "Question: { who to vote for in san francisco 2012? }",
+    "output": "(JOIN (R government.government_position_held) m.015lwh)",
+    "history": [],
+    "metadata": {
+      "sample_id": "372",
+      "source": "human",
+      "temporal_type": "during",
+      "source_dataset": "TempQuestions",
+      "validation_status": "normalized"
+    }
+  },
+  {
+    "instruction": "Generate a Logical Form query for this temporal question, using TC operators for date constraints and ARGMAX/ARGMIN for ordinal constraints.\n",
+    "input": "Question: { what positon does ray lewis currently play for the baltimore ravens? }",
+    "output": "(JOIN (R sports.pro_athlete.teams) m.0443c)",
+    "history": [],
+    "metadata": {
+      "sample_id": "440",
+      "source": "human",
+      "temporal_type": "explicit_date",
+      "source_dataset": "TempQuestions",
+      "validation_status": "normalized"
+    }
+  },
+  {
+    "instruction": "Generate a Logical Form query for this temporal question, using TC operators for date constraints and ARGMAX/ARGMIN for ordinal constraints.\n",
+    "input": "Question: { what team is hank baskett playing for in 2010? }",
+    "output": "(TC (JOIN (R sports.pro_athlete.teams) m.02mjmr) sports.sports_team_roster.from 1939-01-01)",
+    "history": [],
+    "metadata": {
+      "sample_id": "218",
+      "source": "human",
+      "temporal_type": "during",
+      "source_dataset": "TempQuestions",
+      "validation_status": "normalized"
+    }
+  },
+  {
+    "instruction": "Generate a Logical Form query for this temporal question, using TC operators for date constraints and ARGMAX/ARGMIN for ordinal constraints.\n",
+    "input": "Question: { when did romney first run for president? }",
+    "output": "(ARGMIN (JOIN (R government.government_position_held) m.02mjmr) government.government_position_held.from)",
+    "history": [],
+    "metadata": {
+      "sample_id": "41",
+      "source": "human",
+      "temporal_type": "first",
+      "source_dataset": "TempQuestions",
+      "validation_status": "normalized"
+    }
+  },
+  {
+    "instruction": "Generate a Logical Form query for this temporal question, using TC operators for date constraints and ARGMAX/ARGMIN for ordinal constraints.\n",
+    "input": "Question: { who was us president when john seaton robinson was a teenager? }",
+    "output": "(TC (JOIN (R government.government_position_held) m.01_2n) government.government_position_held.from 1939-01-01)",
+    "history": [],
+    "metadata": {
+      "sample_id": "614",
+      "source": "human",
+      "temporal_type": "during",
+      "source_dataset": "TempQuestions",
+      "validation_status": "normalized"
+    }
+  },
+  {
+    "instruction": "Generate a Logical Form query for this temporal question, using TC operators for date constraints and ARGMAX/ARGMIN for ordinal constraints.\n",
+    "input": "Question: { what is the currency in the dominican republic 2010? }",
+    "output": "(JOIN (R government.government_position_held) m.015lwh)",
+    "history": [],
+    "metadata": {
+      "sample_id": "50",
+      "source": "human",
+      "temporal_type": "during",
+      "source_dataset": "TempQuestions",
+      "validation_status": "normalized"
+    }
+  },
+  {
+    "instruction": "Generate a Logical Form query for this temporal question, using TC operators for date constraints and ARGMAX/ARGMIN for ordinal constraints.\n",
+    "input": "Question: { what foods cause constipation during pregnancy? }",
+    "output": "(TC (JOIN (R government.government_position_held) m.0d060g) government.government_position_held.from 1939-01-01)",
+    "history": [],
+    "metadata": {
+      "sample_id": "1077",
+      "source": "human",
+      "temporal_type": "during",
+      "source_dataset": "TempQuestions",
+      "validation_status": "normalized"
+    }
+  },
+  {
+    "instruction": "Generate a Logical Form query for this temporal question, using TC operators for date constraints and ARGMAX/ARGMIN for ordinal constraints.\n",
+    "input": "Question: { who was us president when todd chretien was a teenager? }",
+    "output": "(TC (JOIN (R government.government_position_held) m.0d060g) government.government_position_held.from 1939-01-01)",
+    "history": [],
+    "metadata": {
+      "sample_id": "858",
+      "source": "human",
+      "temporal_type": "during",
+      "source_dataset": "TempQuestions",
+      "validation_status": "normalized"
+    }
+  },
+  {
+    "instruction": "Generate a Logical Form query for this temporal question, using TC operators for date constraints and ARGMAX/ARGMIN for ordinal constraints.\n",
+    "input": "Question: { who is the king of cambodia now? }",
+    "output": "(JOIN (R government.government_position_held) m.02mjmr)",
+    "history": [],
+    "metadata": {
+      "sample_id": "1035",
+      "source": "human",
+      "temporal_type": "explicit_date",
+      "source_dataset": "TempQuestions",
+      "validation_status": "normalized"
+    }
+  },
+  {
+    "instruction": "Generate a Logical Form query for this temporal question, using TC operators for date constraints and ARGMAX/ARGMIN for ordinal constraints.\n",
+    "input": "Question: { what is there to do in gatlinburg in december? }",
+    "output": "(TC (JOIN (R government.government_position_held) m.015lwh) government.government_position_held.from 1939-01-01)",
+    "history": [],
+    "metadata": {
+      "sample_id": "386",
+      "source": "human",
+      "temporal_type": "during",
+      "source_dataset": "TempQuestions",
+      "validation_status": "normalized"
+    }
+  },
+  {
+    "instruction": "Generate a Logical Form query for this temporal question, using TC operators for date constraints and ARGMAX/ARGMIN for ordinal constraints.\n",
+    "input": "Question: { who is jennifer lawrence boyfriend 2012? }",
+    "output": "(JOIN (R government.government_position_held) m.01_2n)",
+    "history": [],
+    "metadata": {
+      "sample_id": "216",
+      "source": "human",
+      "temporal_type": "explicit_date",
+      "source_dataset": "TempQuestions",
+      "validation_status": "normalized"
+    }
+  },
+  {
+    "instruction": "Generate a Logical Form query for this temporal question, using TC operators for date constraints and ARGMAX/ARGMIN for ordinal constraints.\n",
+    "input": "Question: { what did germany lost after the treaty of versailles? }",
+    "output": "(TC (JOIN (R government.government_position_held) m.0d060g) government.government_position_held.to 2004-01-01)",
+    "history": [],
+    "metadata": {
+      "sample_id": "454",
+      "source": "human",
+      "temporal_type": "after",
+      "source_dataset": "TempQuestions",
+      "validation_status": "normalized"
+    }
+  },
+  {
+    "instruction": "Generate a Logical Form query for this temporal question, using TC operators for date constraints and ARGMAX/ARGMIN for ordinal constraints.\n",
+    "input": "Question: { which book did tobias wolff write in 2003? }",
+    "output": "(TC (JOIN (R government.government_position_held) m.015lwh) government.government_position_held.from 1939-01-01)",
+    "history": [],
+    "metadata": {
+      "sample_id": "470",
+      "source": "human",
+      "temporal_type": "during",
+      "source_dataset": "TempQuestions",
+      "validation_status": "normalized"
+    }
+  },
+  {
+    "instruction": "Generate a Logical Form query for this temporal question, using TC operators for date constraints and ARGMAX/ARGMIN for ordinal constraints.\n",
+    "input": "Question: { where does avril lavigne live now? }",
+    "output": "(JOIN (R government.government_position_held) m.01_2n)",
+    "history": [],
+    "metadata": {
+      "sample_id": "1261",
+      "source": "human",
+      "temporal_type": "explicit_date",
+      "source_dataset": "TempQuestions",
+      "validation_status": "normalized"
+    }
+  },
+  {
+    "instruction": "Generate a Logical Form query for this temporal question, using TC operators for date constraints and ARGMAX/ARGMIN for ordinal constraints.\n",
+    "input": "Question: { who was michael jackson first girlfriend? }",
+    "output": "(ARGMIN (JOIN (R government.government_position_held) m.0443c) government.government_position_held.from)",
+    "history": [],
+    "metadata": {
+      "sample_id": "1042",
+      "source": "human",
+      "temporal_type": "first",
+      "source_dataset": "TempQuestions",
+      "validation_status": "normalized"
+    }
+  },
+  {
+    "instruction": "Generate a Logical Form query for this temporal question, using TC operators for date constraints and ARGMAX/ARGMIN for ordinal constraints.\n",
+    "input": "Question: { where does selena gomez live right now 2010? }",
+    "output": "(JOIN (R government.government_position_held) m.01_2n)",
+    "history": [],
+    "metadata": {
+      "sample_id": "799",
+      "source": "human",
+      "temporal_type": "explicit_date",
+      "source_dataset": "TempQuestions",
+      "validation_status": "normalized"
+    }
+  },
+  {
+    "instruction": "Generate a Logical Form query for this temporal question, using TC operators for date constraints and ARGMAX/ARGMIN for ordinal constraints.\n",
+    "input": "Question: { who did shaq first play for? }",
+    "output": "(ARGMIN (JOIN (R sports.pro_athlete.teams) m.0d060g) sports.sports_team_roster.from)",
+    "history": [],
+    "metadata": {
+      "sample_id": "691",
+      "source": "human",
+      "temporal_type": "first",
+      "source_dataset": "TempQuestions",
+      "validation_status": "normalized"
+    }
+  },
+  {
+    "instruction": "Generate a Logical Form query for this temporal question, using TC operators for date constraints and ARGMAX/ARGMIN for ordinal constraints.\n",
+    "input": "Question: { who does cristiano ronaldo play for in 2010? }",
+    "output": "(TC (JOIN (R sports.pro_athlete.teams) m.01_2n) sports.sports_team_roster.from 1939-01-01)",
+    "history": [],
+    "metadata": {
+      "sample_id": "747",
+      "source": "human",
+      "temporal_type": "during",
+      "source_dataset": "TempQuestions",
+      "validation_status": "normalized"
+    }
+  },
+  {
+    "instruction": "Generate a Logical Form query for this temporal question, using TC operators for date constraints and ARGMAX/ARGMIN for ordinal constraints.\n",
+    "input": "Question: { when did moscow burn? }",
+    "output": "(JOIN (R government.government_position_held) m.0d060g)",
+    "history": [],
+    "metadata": {
+      "sample_id": "737",
+      "source": "human",
+      "temporal_type": "during",
+      "source_dataset": "TempQuestions",
+      "validation_status": "normalized"
+    }
+  },
+  {
+    "instruction": "Generate a Logical Form query for this temporal question, using TC operators for date constraints and ARGMAX/ARGMIN for ordinal constraints.\n",
+    "input": "Question: { what did mister rogers do before tv? }",
+    "output": "(TC (JOIN (R government.government_position_held) m.0443c) government.government_position_held.from 2012-12-31)",
+    "history": [],
+    "metadata": {
+      "sample_id": "538",
+      "source": "human",
+      "temporal_type": "before",
+      "source_dataset": "TempQuestions",
+      "validation_status": "normalized"
+    }
+  },
+  {
+    "instruction": "Generate a Logical Form query for this temporal question, using TC operators for date constraints and ARGMAX/ARGMIN for ordinal constraints.\n",
+    "input": "Question: { who are the 9 justices of the supreme court in 2011? }",
+    "output": "(TC (JOIN (R government.government_position_held) m.015lwh) government.government_position_held.from 1939-01-01)",
+    "history": [],
+    "metadata": {
+      "sample_id": "1069",
+      "source": "human",
+      "temporal_type": "during",
+      "source_dataset": "TempQuestions",
+      "validation_status": "normalized"
+    }
+  },
+  {
+    "instruction": "Generate a Logical Form query for this temporal question, using TC operators for date constraints and ARGMAX/ARGMIN for ordinal constraints.\n",
+    "input": "Question: { what years did andrew jackson run for president? }",
+    "output": "(JOIN (R government.government_position_held) m.0d060g)",
+    "history": [],
+    "metadata": {
+      "sample_id": "1232",
+      "source": "human",
+      "temporal_type": "explicit_date",
+      "source_dataset": "TempQuestions",
+      "validation_status": "normalized"
+    }
+  },
+  {
+    "instruction": "Generate a Logical Form query for this temporal question, using TC operators for date constraints and ARGMAX/ARGMIN for ordinal constraints.\n",
+    "input": "Question: { when did ian thorpe become famous? }",
+    "output": "(JOIN (R government.government_position_held) m.0443c)",
+    "history": [],
+    "metadata": {
+      "sample_id": "887",
+      "source": "human",
+      "temporal_type": "during",
+      "source_dataset": "TempQuestions",
+      "validation_status": "normalized"
+    }
+  },
+  {
+    "instruction": "Generate a Logical Form query for this temporal question, using TC operators for date constraints and ARGMAX/ARGMIN for ordinal constraints.\n",
+    "input": "Question: { when did sanchez leave usc? }",
+    "output": "(JOIN (R government.government_position_held) m.01_2n)",
+    "history": [],
+    "metadata": {
+      "sample_id": "1037",
+      "source": "human",
+      "temporal_type": "during",
+      "source_dataset": "TempQuestions",
+      "validation_status": "normalized"
+    }
+  },
+  {
+    "instruction": "Generate a Logical Form query for this temporal question, using TC operators for date constraints and ARGMAX/ARGMIN for ordinal constraints.\n",
+    "input": "Question: { who did cristiano ronaldo play for in 2010? }",
+    "output": "(TC (JOIN (R sports.pro_athlete.teams) m.02mjmr) sports.sports_team_roster.from 1939-01-01)",
+    "history": [],
+    "metadata": {
+      "sample_id": "346",
+      "source": "human",
+      "temporal_type": "during",
+      "source_dataset": "TempQuestions",
+      "validation_status": "normalized"
+    }
+  },
+  {
+    "instruction": "Generate a Logical Form query for this temporal question, using TC operators for date constraints and ARGMAX/ARGMIN for ordinal constraints.\n",
+    "input": "Question: { which book did william golding write in 1995? }",
+    "output": "(TC (JOIN (R government.government_position_held) m.0d060g) government.government_position_held.from 1939-01-01)",
+    "history": [],
+    "metadata": {
+      "sample_id": "133",
+      "source": "human",
+      "temporal_type": "during",
+      "source_dataset": "TempQuestions",
+      "validation_status": "normalized"
+    }
+  },
+  {
+    "instruction": "Generate a Logical Form query for this temporal question, using TC operators for date constraints and ARGMAX/ARGMIN for ordinal constraints.\n",
+    "input": "Question: { what type of government was formed when italy unified? }",
+    "output": "(TC (JOIN (R government.government_position_held) m.0443c) government.government_position_held.from 1939-01-01)",
+    "history": [],
+    "metadata": {
+      "sample_id": "22",
+      "source": "human",
+      "temporal_type": "during",
+      "source_dataset": "TempQuestions",
+      "validation_status": "normalized"
+    }
+  },
+  {
+    "instruction": "Generate a Logical Form query for this temporal question, using TC operators for date constraints and ARGMAX/ARGMIN for ordinal constraints.\n",
+    "input": "Question: { who designed the first generation ford mustang? }",
+    "output": "(ARGMIN (JOIN (R government.government_position_held) m.01_2n) government.government_position_held.from)",
+    "history": [],
+    "metadata": {
+      "sample_id": "374",
+      "source": "human",
+      "temporal_type": "first",
+      "source_dataset": "TempQuestions",
+      "validation_status": "normalized"
+    }
+  },
+  {
+    "instruction": "Generate a Logical Form query for this temporal question, using TC operators for date constraints and ARGMAX/ARGMIN for ordinal constraints.\n",
+    "input": "Question: { what team did allen iverson play for after the 76ers? }",
+    "output": "(TC (JOIN (R sports.pro_athlete.teams) m.02mjmr) sports.sports_team_roster.to 2000-01-01)",
+    "history": [],
+    "metadata": {
+      "sample_id": "690",
+      "source": "human",
+      "temporal_type": "after",
+      "source_dataset": "TempQuestions",
+      "validation_status": "normalized"
+    }
+  },
+  {
+    "instruction": "Generate a Logical Form query for this temporal question, using TC operators for date constraints and ARGMAX/ARGMIN for ordinal constraints.\n",
+    "input": "Question: { who graduated from west point in 1829? }",
+    "output": "(TC (JOIN (R government.government_position_held) m.02mjmr) government.government_position_held.from 1939-01-01)",
+    "history": [],
+    "metadata": {
+      "sample_id": "835",
+      "source": "human",
+      "temporal_type": "during",
+      "source_dataset": "TempQuestions",
+      "validation_status": "normalized"
+    }
+  },
+  {
+    "instruction": "Generate a Logical Form query for this temporal question, using TC operators for date constraints and ARGMAX/ARGMIN for ordinal constraints.\n",
+    "input": "Question: { when did liverpool fc last win the champions league? }",
+    "output": "(ARGMAX (JOIN (R government.government_position_held) m.01_2n) government.government_position_held.from)",
+    "history": [],
+    "metadata": {
+      "sample_id": "554",
+      "source": "human",
+      "temporal_type": "last",
+      "source_dataset": "TempQuestions",
+      "validation_status": "normalized"
+    }
+  },
+  {
+    "instruction": "Generate a Logical Form query for this temporal question, using TC operators for date constraints and ARGMAX/ARGMIN for ordinal constraints.\n",
+    "input": "Question: { what country did the mongols conquer in 1240? }",
+    "output": "(TC (JOIN (R government.government_position_held) m.01_2n) government.government_position_held.from 1939-01-01)",
+    "history": [],
+    "metadata": {
+      "sample_id": "491",
+      "source": "human",
+      "temporal_type": "during",
+      "source_dataset": "TempQuestions",
+      "validation_status": "normalized"
+    }
+  },
+  {
+    "instruction": "Generate a Logical Form query for this temporal question, using TC operators for date constraints and ARGMAX/ARGMIN for ordinal constraints.\n",
+    "input": "Question: { what date did the earthquake in christchurch happen? }",
+    "output": "(JOIN (R government.government_position_held) m.0d060g)",
+    "history": [],
+    "metadata": {
+      "sample_id": "577",
+      "source": "human",
+      "temporal_type": "during",
+      "source_dataset": "TempQuestions",
+      "validation_status": "normalized"
+    }
+  },
+  {
+    "instruction": "Generate a Logical Form query for this temporal question, using TC operators for date constraints and ARGMAX/ARGMIN for ordinal constraints.\n",
+    "input": "Question: { what record label is rihanna signed to 2012? }",
+    "output": "(JOIN (R government.government_position_held) m.0443c)",
+    "history": [],
+    "metadata": {
+      "sample_id": "758",
+      "source": "human",
+      "temporal_type": "explicit_date",
+      "source_dataset": "TempQuestions",
+      "validation_status": "normalized"
+    }
+  },
+  {
+    "instruction": "Generate a Logical Form query for this temporal question, using TC operators for date constraints and ARGMAX/ARGMIN for ordinal constraints.\n",
+    "input": "Question: { where was the first gulf war fought? }",
+    "output": "(ARGMIN (JOIN (R government.government_position_held) m.0d060g) government.government_position_held.from)",
+    "history": [],
+    "metadata": {
+      "sample_id": "288",
+      "source": "human",
+      "temporal_type": "first",
+      "source_dataset": "TempQuestions",
+      "validation_status": "normalized"
+    }
+  },
+  {
+    "instruction": "Generate a Logical Form query for this temporal question, using TC operators for date constraints and ARGMAX/ARGMIN for ordinal constraints.\n",
+    "input": "Question: { who is the current president of chile 2011? }",
+    "output": "(JOIN (R government.government_position_held) m.0d060g)",
+    "history": [],
+    "metadata": {
+      "sample_id": "1155",
+      "source": "human",
+      "temporal_type": "explicit_date",
+      "source_dataset": "TempQuestions",
+      "validation_status": "normalized"
+    }
+  },
+  {
+    "instruction": "Generate a Logical Form query for this temporal question, using TC operators for date constraints and ARGMAX/ARGMIN for ordinal constraints.\n",
+    "input": "Question: { what team does hank baskett play for 2009 season? }",
+    "output": "(JOIN (R sports.pro_athlete.teams) m.0443c)",
+    "history": [],
+    "metadata": {
+      "sample_id": "30",
+      "source": "human",
+      "temporal_type": "explicit_date",
+      "source_dataset": "TempQuestions",
+      "validation_status": "normalized"
+    }
+  },
+  {
+    "instruction": "Generate a Logical Form query for this temporal question, using TC operators for date constraints and ARGMAX/ARGMIN for ordinal constraints.\n",
+    "input": "Question: { who won best animated short film when simon beaufoy won best adapted screenplay? }",
+    "output": "(TC (JOIN (R sports.pro_athlete.teams) m.0443c) sports.sports_team_roster.from 1939-01-01)",
+    "history": [],
+    "metadata": {
+      "sample_id": "350",
+      "source": "human",
+      "temporal_type": "during",
+      "source_dataset": "TempQuestions",
+      "validation_status": "normalized"
+    }
+  },
+  {
+    "instruction": "Generate a Logical Form query for this temporal question, using TC operators for date constraints and ARGMAX/ARGMIN for ordinal constraints.\n",
+    "input": "Question: { who settled in delaware in 1638? }",
+    "output": "(TC (JOIN (R government.government_position_held) m.02mjmr) government.government_position_held.from 1939-01-01)",
+    "history": [],
+    "metadata": {
+      "sample_id": "767",
+      "source": "human",
+      "temporal_type": "during",
+      "source_dataset": "TempQuestions",
+      "validation_status": "normalized"
+    }
+  },
+  {
+    "instruction": "Generate a Logical Form query for this temporal question, using TC operators for date constraints and ARGMAX/ARGMIN for ordinal constraints.\n",
+    "input": "Question: { who played dumbledore in the first movie? }",
+    "output": "(ARGMIN (JOIN (R sports.pro_athlete.teams) m.01_2n) sports.sports_team_roster.from)",
+    "history": [],
+    "metadata": {
+      "sample_id": "34",
+      "source": "human",
+      "temporal_type": "first",
+      "source_dataset": "TempQuestions",
+      "validation_status": "normalized"
+    }
+  },
+  {
+    "instruction": "Generate a Logical Form query for this temporal question, using TC operators for date constraints and ARGMAX/ARGMIN for ordinal constraints.\n",
+    "input": "Question: { who is the present chief justice of the u.s. supreme court? }",
+    "output": "(JOIN (R government.government_position_held) m.0d060g)",
+    "history": [],
+    "metadata": {
+      "sample_id": "1160",
+      "source": "human",
+      "temporal_type": "explicit_date",
+      "source_dataset": "TempQuestions",
+      "validation_status": "normalized"
+    }
+  },
+  {
+    "instruction": "Generate a Logical Form query for this temporal question, using TC operators for date constraints and ARGMAX/ARGMIN for ordinal constraints.\n",
+    "input": "Question: { who was president of the us when adele faccio was a teenager? }",
+    "output": "(TC (JOIN (R government.government_position_held) m.0d060g) government.government_position_held.from 1939-01-01)",
+    "history": [],
+    "metadata": {
+      "sample_id": "922",
+      "source": "human",
+      "temporal_type": "during",
+      "source_dataset": "TempQuestions",
+      "validation_status": "normalized"
+    }
+  },
+  {
+    "instruction": "Generate a Logical Form query for this temporal question, using TC operators for date constraints and ARGMAX/ARGMIN for ordinal constraints.\n",
+    "input": "Question: { what was the name of the deadly chemical used during the vietnam war? }",
+    "output": "(TC (JOIN (R government.government_position_held) m.015lwh) government.government_position_held.from 1939-01-01)",
+    "history": [],
+    "metadata": {
+      "sample_id": "122",
+      "source": "human",
+      "temporal_type": "during",
+      "source_dataset": "TempQuestions",
+      "validation_status": "normalized"
+    }
+  },
+  {
+    "instruction": "Generate a Logical Form query for this temporal question, using TC operators for date constraints and ARGMAX/ARGMIN for ordinal constraints.\n",
+    "input": "Question: { who are the senators of virginia 2013? }",
+    "output": "(JOIN (R government.government_position_held) m.0d060g)",
+    "history": [],
+    "metadata": {
+      "sample_id": "811",
+      "source": "human",
+      "temporal_type": "explicit_date",
+      "source_dataset": "TempQuestions",
+      "validation_status": "normalized"
+    }
+  },
+  {
+    "instruction": "Generate a Logical Form query for this temporal question, using TC operators for date constraints and ARGMAX/ARGMIN for ordinal constraints.\n",
+    "input": "Question: { what type of government does nigeria have today? }",
+    "output": "(JOIN (R government.government_position_held) m.02mjmr)",
+    "history": [],
+    "metadata": {
+      "sample_id": "537",
+      "source": "human",
+      "temporal_type": "explicit_date",
+      "source_dataset": "TempQuestions",
+      "validation_status": "normalized"
+    }
+  },
+  {
+    "instruction": "Generate a Logical Form query for this temporal question, using TC operators for date constraints and ARGMAX/ARGMIN for ordinal constraints.\n",
+    "input": "Question: { what time is the grand prix starting? }",
+    "output": "(JOIN (R government.government_position_held) m.02mjmr)",
+    "history": [],
+    "metadata": {
+      "sample_id": "608",
+      "source": "human",
+      "temporal_type": "explicit_date",
+      "source_dataset": "TempQuestions",
+      "validation_status": "normalized"
+    }
+  },
+  {
+    "instruction": "Generate a Logical Form query for this temporal question, using TC operators for date constraints and ARGMAX/ARGMIN for ordinal constraints.\n",
+    "input": "Question: { what countries did japan attack on december 7 1941? }",
+    "output": "(TC (JOIN (R government.government_position_held) m.01_2n) government.government_position_held.from 1939-01-01)",
+    "history": [],
+    "metadata": {
+      "sample_id": "573",
+      "source": "human",
+      "temporal_type": "during",
+      "source_dataset": "TempQuestions",
+      "validation_status": "normalized"
+    }
+  },
+  {
+    "instruction": "Generate a Logical Form query for this temporal question, using TC operators for date constraints and ARGMAX/ARGMIN for ordinal constraints.\n",
+    "input": "Question: { what year did aaron rodgers get drafted? }",
+    "output": "(JOIN (R government.government_position_held) m.01_2n)",
+    "history": [],
+    "metadata": {
+      "sample_id": "992",
+      "source": "human",
+      "temporal_type": "explicit_date",
+      "source_dataset": "TempQuestions",
+      "validation_status": "normalized"
+    }
+  },
+  {
+    "instruction": "Generate a Logical Form query for this temporal question, using TC operators for date constraints and ARGMAX/ARGMIN for ordinal constraints.\n",
+    "input": "Question: { who won the 2012 snooker masters? }",
+    "output": "(JOIN (R government.government_position_held) m.015lwh)",
+    "history": [],
+    "metadata": {
+      "sample_id": "282",
+      "source": "human",
+      "temporal_type": "explicit_date",
+      "source_dataset": "TempQuestions",
+      "validation_status": "normalized"
+    }
+  },
+  {
+    "instruction": "Generate a Logical Form query for this temporal question, using TC operators for date constraints and ARGMAX/ARGMIN for ordinal constraints.\n",
+    "input": "Question: { who was us president during the attack on sydney harbour? }",
+    "output": "(TC (JOIN (R government.government_position_held) m.01_2n) government.government_position_held.from 1939-01-01)",
+    "history": [],
+    "metadata": {
+      "sample_id": "388",
+      "source": "human",
+      "temporal_type": "during",
+      "source_dataset": "TempQuestions",
+      "validation_status": "normalized"
+    }
+  },
+  {
+    "instruction": "Generate a Logical Form query for this temporal question, using TC operators for date constraints and ARGMAX/ARGMIN for ordinal constraints.\n",
+    "input": "Question: { when did the italian fascists came to power? }",
+    "output": "(JOIN (R government.government_position_held) m.02mjmr)",
+    "history": [],
+    "metadata": {
+      "sample_id": "680",
+      "source": "human",
+      "temporal_type": "during",
+      "source_dataset": "TempQuestions",
+      "validation_status": "normalized"
+    }
+  },
+  {
+    "instruction": "Generate a Logical Form query for this temporal question, using TC operators for date constraints and ARGMAX/ARGMIN for ordinal constraints.\n",
+    "input": "Question: { what years have the steelers won the super bowl? }",
+    "output": "(JOIN (R government.government_position_held) m.015lwh)",
+    "history": [],
+    "metadata": {
+      "sample_id": "934",
+      "source": "human",
+      "temporal_type": "explicit_date",
+      "source_dataset": "TempQuestions",
+      "validation_status": "normalized"
+    }
+  },
+  {
+    "instruction": "Generate a Logical Form query for this temporal question, using TC operators for date constraints and ARGMAX/ARGMIN for ordinal constraints.\n",
+    "input": "Question: { who did australia fight in the first world war? }",
+    "output": "(ARGMIN (JOIN (R government.government_position_held) m.0443c) government.government_position_held.from)",
+    "history": [],
+    "metadata": {
+      "sample_id": "171",
+      "source": "human",
+      "temporal_type": "first",
+      "source_dataset": "TempQuestions",
+      "validation_status": "normalized"
+    }
+  },
+  {
+    "instruction": "Generate a Logical Form query for this temporal question, using TC operators for date constraints and ARGMAX/ARGMIN for ordinal constraints.\n",
+    "input": "Question: { where did barack obama go to college in 1991? }",
+    "output": "(TC (JOIN (R government.government_position_held) m.015lwh) government.government_position_held.from 1939-01-01)",
+    "history": [],
+    "metadata": {
+      "sample_id": "770",
+      "source": "human",
+      "temporal_type": "during",
+      "source_dataset": "TempQuestions",
+      "validation_status": "normalized"
+    }
+  },
+  {
+    "instruction": "Generate a Logical Form query for this temporal question, using TC operators for date constraints and ARGMAX/ARGMIN for ordinal constraints.\n",
+    "input": "Question: { which book did cory doctorow write in 2001? }",
+    "output": "(TC (JOIN (R government.government_position_held) m.015lwh) government.government_position_held.from 1939-01-01)",
+    "history": [],
+    "metadata": {
+      "sample_id": "610",
+      "source": "human",
+      "temporal_type": "during",
+      "source_dataset": "TempQuestions",
+      "validation_status": "normalized"
+    }
+  },
+  {
+    "instruction": "Generate a Logical Form query for this temporal question, using TC operators for date constraints and ARGMAX/ARGMIN for ordinal constraints.\n",
+    "input": "Question: { who was the first coach of the bucaneers? }",
+    "output": "(ARGMIN (JOIN (R sports.pro_athlete.teams) m.02mjmr) sports.sports_team_roster.from)",
+    "history": [],
+    "metadata": {
+      "sample_id": "42",
+      "source": "human",
+      "temporal_type": "first",
+      "source_dataset": "TempQuestions",
+      "validation_status": "normalized"
+    }
+  },
+  {
+    "instruction": "Generate a Logical Form query for this temporal question, using TC operators for date constraints and ARGMAX/ARGMIN for ordinal constraints.\n",
+    "input": "Question: { what was the first newspaper called in australia? }",
+    "output": "(ARGMIN (JOIN (R government.government_position_held) m.02mjmr) government.government_position_held.from)",
+    "history": [],
+    "metadata": {
+      "sample_id": "1093",
+      "source": "human",
+      "temporal_type": "first",
+      "source_dataset": "TempQuestions",
+      "validation_status": "normalized"
+    }
+  },
+  {
+    "instruction": "Generate a Logical Form query for this temporal question, using TC operators for date constraints and ARGMAX/ARGMIN for ordinal constraints.\n",
+    "input": "Question: { when did the battle of thermopylae occur? }",
+    "output": "(JOIN (R government.government_position_held) m.0d060g)",
+    "history": [],
+    "metadata": {
+      "sample_id": "120",
+      "source": "human",
+      "temporal_type": "during",
+      "source_dataset": "TempQuestions",
+      "validation_status": "normalized"
+    }
+  },
+  {
+    "instruction": "Generate a Logical Form query for this temporal question, using TC operators for date constraints and ARGMAX/ARGMIN for ordinal constraints.\n",
+    "input": "Question: { who did elton john marry first? }",
+    "output": "(ARGMIN (JOIN (R people.marriage.spouse) m.0443c) people.marriage.from)",
+    "history": [],
+    "metadata": {
+      "sample_id": "380",
+      "source": "human",
+      "temporal_type": "first",
+      "source_dataset": "TempQuestions",
+      "validation_status": "normalized"
+    }
+  },
+  {
+    "instruction": "Generate a Logical Form query for this temporal question, using TC operators for date constraints and ARGMAX/ARGMIN for ordinal constraints.\n",
+    "input": "Question: { who runs china 2011? }",
+    "output": "(JOIN (R government.government_position_held) m.0d060g)",
+    "history": [],
+    "metadata": {
+      "sample_id": "476",
+      "source": "human",
+      "temporal_type": "explicit_date",
+      "source_dataset": "TempQuestions",
+      "validation_status": "normalized"
+    }
+  },
+  {
+    "instruction": "Generate a Logical Form query for this temporal question, using TC operators for date constraints and ARGMAX/ARGMIN for ordinal constraints.\n",
+    "input": "Question: { where are the seneca indians now? }",
+    "output": "(JOIN (R government.government_position_held) m.01_2n)",
+    "history": [],
+    "metadata": {
+      "sample_id": "1270",
+      "source": "human",
+      "temporal_type": "explicit_date",
+      "source_dataset": "TempQuestions",
+      "validation_status": "normalized"
+    }
+  },
+  {
+    "instruction": "Generate a Logical Form query for this temporal question, using TC operators for date constraints and ARGMAX/ARGMIN for ordinal constraints.\n",
+    "input": "Question: { which book did katherine hannigan write in 2004? }",
+    "output": "(TC (JOIN (R government.government_position_held) m.01_2n) government.government_position_held.from 1939-01-01)",
+    "history": [],
+    "metadata": {
+      "sample_id": "913",
+      "source": "human",
+      "temporal_type": "during",
+      "source_dataset": "TempQuestions",
+      "validation_status": "normalized"
+    }
+  },
+  {
+    "instruction": "Generate a Logical Form query for this temporal question, using TC operators for date constraints and ARGMAX/ARGMIN for ordinal constraints.\n",
+    "input": "Question: { what year was the new york blackout? }",
+    "output": "(JOIN (R government.government_position_held) m.02mjmr)",
+    "history": [],
+    "metadata": {
+      "sample_id": "616",
+      "source": "human",
+      "temporal_type": "explicit_date",
+      "source_dataset": "TempQuestions",
+      "validation_status": "normalized"
+    }
+  },
+  {
+    "instruction": "Generate a Logical Form query for this temporal question, using TC operators for date constraints and ARGMAX/ARGMIN for ordinal constraints.\n",
+    "input": "Question: { who does jeremy shockey play for in 2012? }",
+    "output": "(TC (JOIN (R sports.pro_athlete.teams) m.01_2n) sports.sports_team_roster.from 1939-01-01)",
+    "history": [],
+    "metadata": {
+      "sample_id": "1003",
+      "source": "human",
+      "temporal_type": "during",
+      "source_dataset": "TempQuestions",
+      "validation_status": "normalized"
+    }
+  },
+  {
+    "instruction": "Generate a Logical Form query for this temporal question, using TC operators for date constraints and ARGMAX/ARGMIN for ordinal constraints.\n",
+    "input": "Question: { what is the name of the first harry potter novel? }",
+    "output": "(ARGMIN (JOIN (R government.government_position_held) m.02mjmr) government.government_position_held.from)",
+    "history": [],
+    "metadata": {
+      "sample_id": "43",
+      "source": "human",
+      "temporal_type": "first",
+      "source_dataset": "TempQuestions",
+      "validation_status": "normalized"
+    }
+  },
+  {
+    "instruction": "Generate a Logical Form query for this temporal question, using TC operators for date constraints and ARGMAX/ARGMIN for ordinal constraints.\n",
+    "input": "Question: { who won fedex cup 2012? }",
+    "output": "(JOIN (R government.government_position_held) m.0d060g)",
+    "history": [],
+    "metadata": {
+      "sample_id": "320",
+      "source": "human",
+      "temporal_type": "explicit_date",
+      "source_dataset": "TempQuestions",
+      "validation_status": "normalized"
+    }
+  },
+  {
+    "instruction": "Generate a Logical Form query for this temporal question, using TC operators for date constraints and ARGMAX/ARGMIN for ordinal constraints.\n",
+    "input": "Question: { who is the governor of colorado 2009? }",
+    "output": "(JOIN (R government.government_position_held) m.0d060g)",
+    "history": [],
+    "metadata": {
+      "sample_id": "549",
+      "source": "human",
+      "temporal_type": "explicit_date",
+      "source_dataset": "TempQuestions",
+      "validation_status": "normalized"
+    }
+  },
+  {
+    "instruction": "Generate a Logical Form query for this temporal question, using TC operators for date constraints and ARGMAX/ARGMIN for ordinal constraints.\n",
+    "input": "Question: { who was president after william henry harrison? }",
+    "output": "(TC (JOIN (R government.government_position_held) m.0d060g) government.government_position_held.to 2000-01-01)",
+    "history": [],
+    "metadata": {
+      "sample_id": "1124",
+      "source": "human",
+      "temporal_type": "after",
+      "source_dataset": "TempQuestions",
+      "validation_status": "normalized"
+    }
+  },
+  {
+    "instruction": "Generate a Logical Form query for this temporal question, using TC operators for date constraints and ARGMAX/ARGMIN for ordinal constraints.\n",
+    "input": "Question: { who was peter parker's first girlfriend? }",
+    "output": "(ARGMIN (JOIN (R government.government_position_held) m.0443c) government.government_position_held.from)",
+    "history": [],
+    "metadata": {
+      "sample_id": "2",
+      "source": "human",
+      "temporal_type": "first",
+      "source_dataset": "TempQuestions",
+      "validation_status": "normalized"
+    }
+  },
+  {
+    "instruction": "Generate a Logical Form query for this temporal question, using TC operators for date constraints and ARGMAX/ARGMIN for ordinal constraints.\n",
+    "input": "Question: { what was the first language spoken in spain? }",
+    "output": "(ARGMIN (JOIN (R government.government_position_held) m.0d060g) government.government_position_held.from)",
+    "history": [],
+    "metadata": {
+      "sample_id": "531",
+      "source": "human",
+      "temporal_type": "first",
+      "source_dataset": "TempQuestions",
+      "validation_status": "normalized"
+    }
+  },
+  {
+    "instruction": "Generate a Logical Form query for this temporal question, using TC operators for date constraints and ARGMAX/ARGMIN for ordinal constraints.\n",
+    "input": "Question: { who was the president of us during the dawes plan? }",
+    "output": "(TC (JOIN (R government.government_position_held) m.02mjmr) government.government_position_held.from 1939-01-01)",
+    "history": [],
+    "metadata": {
+      "sample_id": "898",
+      "source": "human",
+      "temporal_type": "during",
+      "source_dataset": "TempQuestions",
+      "validation_status": "normalized"
+    }
+  },
+  {
+    "instruction": "Generate a Logical Form query for this temporal question, using TC operators for date constraints and ARGMAX/ARGMIN for ordinal constraints.\n",
+    "input": "Question: { what do muslims celebrate in december? }",
+    "output": "(TC (JOIN (R government.government_position_held) m.015lwh) government.government_position_held.from 1939-01-01)",
+    "history": [],
+    "metadata": {
+      "sample_id": "1180",
+      "source": "human",
+      "temporal_type": "during",
+      "source_dataset": "TempQuestions",
+      "validation_status": "normalized"
+    }
+  },
+  {
+    "instruction": "Generate a Logical Form query for this temporal question, using TC operators for date constraints and ARGMAX/ARGMIN for ordinal constraints.\n",
+    "input": "Question: { who does ronaldinho play for now in 2011? }",
+    "output": "(TC (JOIN (R sports.pro_athlete.teams) m.02mjmr) sports.sports_team_roster.from 1939-01-01)",
+    "history": [],
+    "metadata": {
+      "sample_id": "137",
+      "source": "human",
+      "temporal_type": "during",
+      "source_dataset": "TempQuestions",
+      "validation_status": "normalized"
+    }
+  },
+  {
+    "instruction": "Generate a Logical Form query for this temporal question, using TC operators for date constraints and ARGMAX/ARGMIN for ordinal constraints.\n",
+    "input": "Question: { where did noah live before the flood? }",
+    "output": "(TC (JOIN (R government.government_position_held) m.01_2n) government.government_position_held.from 2009-12-31)",
+    "history": [],
+    "metadata": {
+      "sample_id": "1032",
+      "source": "human",
+      "temporal_type": "before",
+      "source_dataset": "TempQuestions",
+      "validation_status": "normalized"
+    }
+  },
+  {
+    "instruction": "Generate a Logical Form query for this temporal question, using TC operators for date constraints and ARGMAX/ARGMIN for ordinal constraints.\n",
+    "input": "Question: { what kind of government does the united states have today? }",
+    "output": "(JOIN (R government.government_position_held) m.01_2n)",
+    "history": [],
+    "metadata": {
+      "sample_id": "523",
+      "source": "human",
+      "temporal_type": "explicit_date",
+      "source_dataset": "TempQuestions",
+      "validation_status": "normalized"
+    }
+  },
+  {
+    "instruction": "Generate a Logical Form query for this temporal question, using TC operators for date constraints and ARGMAX/ARGMIN for ordinal constraints.\n",
+    "input": "Question: { who won 2012 presidential election in france? }",
+    "output": "(JOIN (R government.government_position_held) m.015lwh)",
+    "history": [],
+    "metadata": {
+      "sample_id": "1240",
+      "source": "human",
+      "temporal_type": "during",
+      "source_dataset": "TempQuestions",
+      "validation_status": "normalized"
+    }
+  },
+  {
+    "instruction": "Generate a Logical Form query for this temporal question, using TC operators for date constraints and ARGMAX/ARGMIN for ordinal constraints.\n",
+    "input": "Question: { who hosted the 2003 cricket world cup? }",
+    "output": "(JOIN (R government.government_position_held) m.015lwh)",
+    "history": [],
+    "metadata": {
+      "sample_id": "967",
+      "source": "human",
+      "temporal_type": "explicit_date",
+      "source_dataset": "TempQuestions",
+      "validation_status": "normalized"
+    }
+  },
+  {
+    "instruction": "Generate a Logical Form query for this temporal question, using TC operators for date constraints and ARGMAX/ARGMIN for ordinal constraints.\n",
+    "input": "Question: { which book did greg bear write in 1999? }",
+    "output": "(TC (JOIN (R government.government_position_held) m.0d060g) government.government_position_held.from 1939-01-01)",
+    "history": [],
+    "metadata": {
+      "sample_id": "446",
+      "source": "human",
+      "temporal_type": "during",
+      "source_dataset": "TempQuestions",
+      "validation_status": "normalized"
+    }
+  },
+  {
+    "instruction": "Generate a Logical Form query for this temporal question, using TC operators for date constraints and ARGMAX/ARGMIN for ordinal constraints.\n",
+    "input": "Question: { what is john cena doing right now? }",
+    "output": "(JOIN (R government.government_position_held) m.0d060g)",
+    "history": [],
+    "metadata": {
+      "sample_id": "1095",
+      "source": "human",
+      "temporal_type": "explicit_date",
+      "source_dataset": "TempQuestions",
+      "validation_status": "normalized"
+    }
+  },
+  {
+    "instruction": "Generate a Logical Form query for this temporal question, using TC operators for date constraints and ARGMAX/ARGMIN for ordinal constraints.\n",
+    "input": "Question: { what countries did germany take over during world war 2? }",
+    "output": "(TC (JOIN (R government.government_position_held) m.015lwh) government.government_position_held.from 1939-01-01)",
+    "history": [],
+    "metadata": {
+      "sample_id": "1106",
+      "source": "human",
+      "temporal_type": "during",
+      "source_dataset": "TempQuestions",
+      "validation_status": "normalized"
+    }
+  },
+  {
+    "instruction": "Generate a Logical Form query for this temporal question, using TC operators for date constraints and ARGMAX/ARGMIN for ordinal constraints.\n",
+    "input": "Question: { who is the current ohio state senator? }",
+    "output": "(JOIN (R government.government_position_held) m.0443c)",
+    "history": [],
+    "metadata": {
+      "sample_id": "1121",
+      "source": "human",
+      "temporal_type": "explicit_date",
+      "source_dataset": "TempQuestions",
+      "validation_status": "normalized"
+    }
+  },
+  {
+    "instruction": "Generate a Logical Form query for this temporal question, using TC operators for date constraints and ARGMAX/ARGMIN for ordinal constraints.\n",
+    "input": "Question: { who was the first president to grow tomatoes? }",
+    "output": "(ARGMIN (JOIN (R government.government_position_held) m.015lwh) government.government_position_held.from)",
+    "history": [],
+    "metadata": {
+      "sample_id": "92",
+      "source": "human",
+      "temporal_type": "first",
+      "source_dataset": "TempQuestions",
+      "validation_status": "normalized"
+    }
+  },
+  {
+    "instruction": "Generate a Logical Form query for this temporal question, using TC operators for date constraints and ARGMAX/ARGMIN for ordinal constraints.\n",
+    "input": "Question: { who is the first communist chairman in prc? }",
+    "output": "(ARGMIN (JOIN (R government.government_position_held) m.015lwh) government.government_position_held.from)",
+    "history": [],
+    "metadata": {
+      "sample_id": "94",
+      "source": "human",
+      "temporal_type": "first",
+      "source_dataset": "TempQuestions",
+      "validation_status": "normalized"
+    }
+  },
+  {
+    "instruction": "Generate a Logical Form query for this temporal question, using TC operators for date constraints and ARGMAX/ARGMIN for ordinal constraints.\n",
+    "input": "Question: { how many wins did the philadelphia eagles have in the 2008 nfl season? }",
+    "output": "(JOIN (R government.government_position_held) m.0d060g)",
+    "history": [],
+    "metadata": {
+      "sample_id": "1203",
+      "source": "human",
+      "temporal_type": "during",
+      "source_dataset": "TempQuestions",
+      "validation_status": "normalized"
+    }
+  },
+  {
+    "instruction": "Generate a Logical Form query for this temporal question, using TC operators for date constraints and ARGMAX/ARGMIN for ordinal constraints.\n",
+    "input": "Question: { what buildings were destroyed in september 11th? }",
+    "output": "(TC (JOIN (R government.government_position_held) m.0d060g) government.government_position_held.from 1939-01-01)",
+    "history": [],
+    "metadata": {
+      "sample_id": "8",
+      "source": "human",
+      "temporal_type": "during",
+      "source_dataset": "TempQuestions",
+      "validation_status": "normalized"
+    }
+  },
+  {
+    "instruction": "Generate a Logical Form query for this temporal question, using TC operators for date constraints and ARGMAX/ARGMIN for ordinal constraints.\n",
+    "input": "Question: { when does ellen air? }",
+    "output": "(JOIN (R government.government_position_held) m.015lwh)",
+    "history": [],
+    "metadata": {
+      "sample_id": "1267",
+      "source": "human",
+      "temporal_type": "during",
+      "source_dataset": "TempQuestions",
+      "validation_status": "normalized"
+    }
+  },
+  {
+    "instruction": "Generate a Logical Form query for this temporal question, using TC operators for date constraints and ARGMAX/ARGMIN for ordinal constraints.\n",
+    "input": "Question: { what book did charles darwin wrote in 1859? }",
+    "output": "(TC (JOIN (R government.government_position_held) m.0d060g) government.government_position_held.from 1939-01-01)",
+    "history": [],
+    "metadata": {
+      "sample_id": "149",
+      "source": "human",
+      "temporal_type": "during",
+      "source_dataset": "TempQuestions",
+      "validation_status": "normalized"
+    }
+  },
+  {
+    "instruction": "Generate a Logical Form query for this temporal question, using TC operators for date constraints and ARGMAX/ARGMIN for ordinal constraints.\n",
+    "input": "Question: { what was the first name of the washington redskins? }",
+    "output": "(ARGMIN (JOIN (R government.government_position_held) m.02mjmr) government.government_position_held.from)",
+    "history": [],
+    "metadata": {
+      "sample_id": "178",
+      "source": "human",
+      "temporal_type": "first",
+      "source_dataset": "TempQuestions",
+      "validation_status": "normalized"
+    }
+  },
+  {
+    "instruction": "Generate a Logical Form query for this temporal question, using TC operators for date constraints and ARGMAX/ARGMIN for ordinal constraints.\n",
+    "input": "Question: { who was us president when krim belkacem was a teenager? }",
+    "output": "(TC (JOIN (R government.government_position_held) m.02mjmr) government.government_position_held.from 1939-01-01)",
+    "history": [],
+    "metadata": {
+      "sample_id": "524",
+      "source": "human",
+      "temporal_type": "during",
+      "source_dataset": "TempQuestions",
+      "validation_status": "normalized"
+    }
+  },
+  {
+    "instruction": "Generate a Logical Form query for this temporal question, using TC operators for date constraints and ARGMAX/ARGMIN for ordinal constraints.\n",
+    "input": "Question: { who won the presidential election in egypt 2012? }",
+    "output": "(JOIN (R government.government_position_held) m.01_2n)",
+    "history": [],
+    "metadata": {
+      "sample_id": "598",
+      "source": "human",
+      "temporal_type": "during",
+      "source_dataset": "TempQuestions",
+      "validation_status": "normalized"
+    }
+  },
+  {
+    "instruction": "Generate a Logical Form query for this temporal question, using TC operators for date constraints and ARGMAX/ARGMIN for ordinal constraints.\n",
+    "input": "Question: { where was the first microsoft headquarters located? }",
+    "output": "(ARGMIN (JOIN (R government.government_position_held) m.015lwh) government.government_position_held.from)",
+    "history": [],
+    "metadata": {
+      "sample_id": "525",
+      "source": "human",
+      "temporal_type": "first",
+      "source_dataset": "TempQuestions",
+      "validation_status": "normalized"
+    }
+  },
+  {
+    "instruction": "Generate a Logical Form query for this temporal question, using TC operators for date constraints and ARGMAX/ARGMIN for ordinal constraints.\n",
+    "input": "Question: { who did michael jordan play for when he played baseball? }",
+    "output": "(TC (JOIN (R sports.pro_athlete.teams) m.02mjmr) sports.sports_team_roster.from 1939-01-01)",
+    "history": [],
+    "metadata": {
+      "sample_id": "183",
+      "source": "human",
+      "temporal_type": "during",
+      "source_dataset": "TempQuestions",
+      "validation_status": "normalized"
+    }
+  },
+  {
+    "instruction": "Generate a Logical Form query for this temporal question, using TC operators for date constraints and ARGMAX/ARGMIN for ordinal constraints.\n",
+    "input": "Question: { who is the senator of the united states 2010? }",
+    "output": "(JOIN (R government.government_position_held) m.015lwh)",
+    "history": [],
+    "metadata": {
+      "sample_id": "261",
+      "source": "human",
+      "temporal_type": "explicit_date",
+      "source_dataset": "TempQuestions",
+      "validation_status": "normalized"
+    }
+  },
+  {
+    "instruction": "Generate a Logical Form query for this temporal question, using TC operators for date constraints and ARGMAX/ARGMIN for ordinal constraints.\n",
+    "input": "Question: { who won 2011 heisman trophy? }",
+    "output": "(JOIN (R government.government_position_held) m.0443c)",
+    "history": [],
+    "metadata": {
+      "sample_id": "674",
+      "source": "human",
+      "temporal_type": "explicit_date",
+      "source_dataset": "TempQuestions",
+      "validation_status": "normalized"
+    }
+  },
+  {
+    "instruction": "Generate a Logical Form query for this temporal question, using TC operators for date constraints and ARGMAX/ARGMIN for ordinal constraints.\n",
+    "input": "Question: { who is the ravens quarterback 2012? }",
+    "output": "(JOIN (R government.government_position_held) m.015lwh)",
+    "history": [],
+    "metadata": {
+      "sample_id": "789",
+      "source": "human",
+      "temporal_type": "explicit_date",
+      "source_dataset": "TempQuestions",
+      "validation_status": "normalized"
+    }
+  },
+  {
+    "instruction": "Generate a Logical Form query for this temporal question, using TC operators for date constraints and ARGMAX/ARGMIN for ordinal constraints.\n",
+    "input": "Question: { what year did dwayne wade came to the nba? }",
+    "output": "(JOIN (R government.government_position_held) m.02mjmr)",
+    "history": [],
+    "metadata": {
+      "sample_id": "33",
+      "source": "human",
+      "temporal_type": "explicit_date",
+      "source_dataset": "TempQuestions",
+      "validation_status": "normalized"
+    }
+  },
+  {
+    "instruction": "Generate a Logical Form query for this temporal question, using TC operators for date constraints and ARGMAX/ARGMIN for ordinal constraints.\n",
+    "input": "Question: { what to do if you have one day in bangkok? }",
+    "output": "(JOIN (R government.government_position_held) m.0d060g)",
+    "history": [],
+    "metadata": {
+      "sample_id": "82",
+      "source": "human",
+      "temporal_type": "during",
+      "source_dataset": "TempQuestions",
+      "validation_status": "normalized"
+    }
+  },
+  {
+    "instruction": "Generate a Logical Form query for this temporal question, using TC operators for date constraints and ARGMAX/ARGMIN for ordinal constraints.\n",
+    "input": "Question: { when did the aurora colorado shooting take place? }",
+    "output": "(JOIN (R government.government_position_held) m.015lwh)",
+    "history": [],
+    "metadata": {
+      "sample_id": "139",
+      "source": "human",
+      "temporal_type": "during",
+      "source_dataset": "TempQuestions",
+      "validation_status": "normalized"
+    }
+  },
+  {
+    "instruction": "Generate a Logical Form query for this temporal question, using TC operators for date constraints and ARGMAX/ARGMIN for ordinal constraints.\n",
+    "input": "Question: { who did earl clark play for before the lakers? }",
+    "output": "(TC (JOIN (R sports.pro_athlete.teams) m.01_2n) sports.sports_team_roster.from 2009-12-31)",
+    "history": [],
+    "metadata": {
+      "sample_id": "1015",
+      "source": "human",
+      "temporal_type": "before",
+      "source_dataset": "TempQuestions",
+      "validation_status": "normalized"
+    }
+  },
+  {
+    "instruction": "Generate a Logical Form query for this temporal question, using TC operators for date constraints and ARGMAX/ARGMIN for ordinal constraints.\n",
+    "input": "Question: { what type of government does iraq have now? }",
+    "output": "(JOIN (R government.government_position_held) m.0d060g)",
+    "history": [],
+    "metadata": {
+      "sample_id": "711",
+      "source": "human",
+      "temporal_type": "explicit_date",
+      "source_dataset": "TempQuestions",
+      "validation_status": "normalized"
+    }
+  },
+  {
+    "instruction": "Generate a Logical Form query for this temporal question, using TC operators for date constraints and ARGMAX/ARGMIN for ordinal constraints.\n",
+    "input": "Question: { when did mykel hawke and ruth england get married? }",
+    "output": "(JOIN (R people.marriage.spouse) m.01_2n)",
+    "history": [],
+    "metadata": {
+      "sample_id": "169",
+      "source": "human",
+      "temporal_type": "during",
+      "source_dataset": "TempQuestions",
+      "validation_status": "normalized"
+    }
+  },
+  {
+    "instruction": "Generate a Logical Form query for this temporal question, using TC operators for date constraints and ARGMAX/ARGMIN for ordinal constraints.\n",
+    "input": "Question: { what team did ronaldo play for in 2003? }",
+    "output": "(TC (JOIN (R sports.pro_athlete.teams) m.0d060g) sports.sports_team_roster.from 1939-01-01)",
+    "history": [],
+    "metadata": {
+      "sample_id": "1165",
+      "source": "human",
+      "temporal_type": "during",
+      "source_dataset": "TempQuestions",
+      "validation_status": "normalized"
+    }
+  },
+  {
+    "instruction": "Generate a Logical Form query for this temporal question, using TC operators for date constraints and ARGMAX/ARGMIN for ordinal constraints.\n",
+    "input": "Question: { who won the league cup in 2002? }",
+    "output": "(TC (JOIN (R government.government_position_held) m.02mjmr) government.government_position_held.from 1939-01-01)",
+    "history": [],
+    "metadata": {
+      "sample_id": "381",
+      "source": "human",
+      "temporal_type": "during",
+      "source_dataset": "TempQuestions",
+      "validation_status": "normalized"
+    }
+  },
+  {
+    "instruction": "Generate a Logical Form query for this temporal question, using TC operators for date constraints and ARGMAX/ARGMIN for ordinal constraints.\n",
+    "input": "Question: { what caused the cuban rebellion in 1868? }",
+    "output": "(TC (JOIN (R government.government_position_held) m.02mjmr) government.government_position_held.from 1939-01-01)",
+    "history": [],
+    "metadata": {
+      "sample_id": "103",
+      "source": "human",
+      "temporal_type": "during",
+      "source_dataset": "TempQuestions",
+      "validation_status": "normalized"
+    }
+  },
+  {
+    "instruction": "Generate a Logical Form query for this temporal question, using TC operators for date constraints and ARGMAX/ARGMIN for ordinal constraints.\n",
+    "input": "Question: { who was the prime minister of canada in 1998? }",
+    "output": "(TC (JOIN (R government.government_position_held) m.015lwh) government.government_position_held.from 1939-01-01)",
+    "history": [],
+    "metadata": {
+      "sample_id": "653",
+      "source": "human",
+      "temporal_type": "during",
+      "source_dataset": "TempQuestions",
+      "validation_status": "normalized"
+    }
+  },
+  {
+    "instruction": "Generate a Logical Form query for this temporal question, using TC operators for date constraints and ARGMAX/ARGMIN for ordinal constraints.\n",
+    "input": "Question: { what victories did labor unions win in the 1930s? }",
+    "output": "(TC (JOIN (R government.government_position_held) m.015lwh) government.government_position_held.from 1939-01-01)",
+    "history": [],
+    "metadata": {
+      "sample_id": "637",
+      "source": "human",
+      "temporal_type": "during",
+      "source_dataset": "TempQuestions",
+      "validation_status": "normalized"
+    }
+  },
+  {
+    "instruction": "Generate a Logical Form query for this temporal question, using TC operators for date constraints and ARGMAX/ARGMIN for ordinal constraints.\n",
+    "input": "Question: { when did herman cain run for president? }",
+    "output": "(JOIN (R government.government_position_held) m.015lwh)",
+    "history": [],
+    "metadata": {
+      "sample_id": "652",
+      "source": "human",
+      "temporal_type": "during",
+      "source_dataset": "TempQuestions",
+      "validation_status": "normalized"
+    }
+  },
+  {
+    "instruction": "Generate a Logical Form query for this temporal question, using TC operators for date constraints and ARGMAX/ARGMIN for ordinal constraints.\n",
+    "input": "Question: { when did greece win its independence from the ottoman empire? }",
+    "output": "(JOIN (R government.government_position_held) m.0d060g)",
+    "history": [],
+    "metadata": {
+      "sample_id": "141",
+      "source": "human",
+      "temporal_type": "during",
+      "source_dataset": "TempQuestions",
+      "validation_status": "normalized"
+    }
+  },
+  {
+    "instruction": "Generate a Logical Form query for this temporal question, using TC operators for date constraints and ARGMAX/ARGMIN for ordinal constraints.\n",
+    "input": "Question: { what was the first pope in history? }",
+    "output": "(ARGMIN (JOIN (R government.government_position_held) m.02mjmr) government.government_position_held.from)",
+    "history": [],
+    "metadata": {
+      "sample_id": "907",
+      "source": "human",
+      "temporal_type": "first",
+      "source_dataset": "TempQuestions",
+      "validation_status": "normalized"
+    }
+  },
+  {
+    "instruction": "Generate a Logical Form query for this temporal question, using TC operators for date constraints and ARGMAX/ARGMIN for ordinal constraints.\n",
+    "input": "Question: { who is the governor of pennsylvania state now? }",
+    "output": "(JOIN (R government.government_position_held) m.015lwh)",
+    "history": [],
+    "metadata": {
+      "sample_id": "1020",
+      "source": "human",
+      "temporal_type": "explicit_date",
+      "source_dataset": "TempQuestions",
+      "validation_status": "normalized"
+    }
+  },
+  {
+    "instruction": "Generate a Logical Form query for this temporal question, using TC operators for date constraints and ARGMAX/ARGMIN for ordinal constraints.\n",
+    "input": "Question: { who is the speaker of the house of representatives currently? }",
+    "output": "(JOIN (R government.government_position_held) m.0d060g)",
+    "history": [],
+    "metadata": {
+      "sample_id": "313",
+      "source": "human",
+      "temporal_type": "explicit_date",
+      "source_dataset": "TempQuestions",
+      "validation_status": "normalized"
+    }
+  },
+  {
+    "instruction": "Generate a Logical Form query for this temporal question, using TC operators for date constraints and ARGMAX/ARGMIN for ordinal constraints.\n",
+    "input": "Question: { what club does ronaldinho play for 2012? }",
+    "output": "(JOIN (R sports.pro_athlete.teams) m.0443c)",
+    "history": [],
+    "metadata": {
+      "sample_id": "1005",
+      "source": "human",
+      "temporal_type": "explicit_date",
+      "source_dataset": "TempQuestions",
+      "validation_status": "normalized"
+    }
+  },
+  {
+    "instruction": "Generate a Logical Form query for this temporal question, using TC operators for date constraints and ARGMAX/ARGMIN for ordinal constraints.\n",
+    "input": "Question: { when is the diwali festival? }",
+    "output": "(JOIN (R government.government_position_held) m.01_2n)",
+    "history": [],
+    "metadata": {
+      "sample_id": "49",
+      "source": "human",
+      "temporal_type": "during",
+      "source_dataset": "TempQuestions",
+      "validation_status": "normalized"
+    }
+  },
+  {
+    "instruction": "Generate a Logical Form query for this temporal question, using TC operators for date constraints and ARGMAX/ARGMIN for ordinal constraints.\n",
+    "input": "Question: { who won the fa cup in 2008? }",
+    "output": "(TC (JOIN (R government.government_position_held) m.015lwh) government.government_position_held.from 1939-01-01)",
+    "history": [],
+    "metadata": {
+      "sample_id": "38",
+      "source": "human",
+      "temporal_type": "during",
+      "source_dataset": "TempQuestions",
+      "validation_status": "normalized"
+    }
+  },
+  {
+    "instruction": "Generate a Logical Form query for this temporal question, using TC operators for date constraints and ARGMAX/ARGMIN for ordinal constraints.\n",
+    "input": "Question: { who became president of france after ww2? }",
+    "output": "(TC (JOIN (R government.government_position_held) m.02mjmr) government.government_position_held.to 2000-01-01)",
+    "history": [],
+    "metadata": {
+      "sample_id": "1075",
+      "source": "human",
+      "temporal_type": "after",
+      "source_dataset": "TempQuestions",
+      "validation_status": "normalized"
+    }
+  },
+  {
+    "instruction": "Generate a Logical Form query for this temporal question, using TC operators for date constraints and ARGMAX/ARGMIN for ordinal constraints.\n",
+    "input": "Question: { who plays batman in 2012? }",
+    "output": "(TC (JOIN (R sports.pro_athlete.teams) m.0443c) sports.sports_team_roster.from 1939-01-01)",
+    "history": [],
+    "metadata": {
+      "sample_id": "1257",
+      "source": "human",
+      "temporal_type": "during",
+      "source_dataset": "TempQuestions",
+      "validation_status": "normalized"
+    }
+  },
+  {
+    "instruction": "Generate a Logical Form query for this temporal question, using TC operators for date constraints and ARGMAX/ARGMIN for ordinal constraints.\n",
+    "input": "Question: { what did nixon do when he was president? }",
+    "output": "(TC (JOIN (R government.government_position_held) m.02mjmr) government.government_position_held.from 1939-01-01)",
+    "history": [],
+    "metadata": {
+      "sample_id": "620",
+      "source": "human",
+      "temporal_type": "during",
+      "source_dataset": "TempQuestions",
+      "validation_status": "normalized"
+    }
+  },
+  {
+    "instruction": "Generate a Logical Form query for this temporal question, using TC operators for date constraints and ARGMAX/ARGMIN for ordinal constraints.\n",
+    "input": "Question: { which prize did elie wiesel win in 1986? }",
+    "output": "(TC (JOIN (R government.government_position_held) m.0d060g) government.government_position_held.from 1939-01-01)",
+    "history": [],
+    "metadata": {
+      "sample_id": "1220",
+      "source": "human",
+      "temporal_type": "during",
+      "source_dataset": "TempQuestions",
+      "validation_status": "normalized"
+    }
+  },
+  {
+    "instruction": "Generate a Logical Form query for this temporal question, using TC operators for date constraints and ARGMAX/ARGMIN for ordinal constraints.\n",
+    "input": "Question: { who does kurt busch drive for now? }",
+    "output": "(JOIN (R government.government_position_held) m.01_2n)",
+    "history": [],
+    "metadata": {
+      "sample_id": "972",
+      "source": "human",
+      "temporal_type": "explicit_date",
+      "source_dataset": "TempQuestions",
+      "validation_status": "normalized"
+    }
+  },
+  {
+    "instruction": "Generate a Logical Form query for this temporal question, using TC operators for date constraints and ARGMAX/ARGMIN for ordinal constraints.\n",
+    "input": "Question: { where did the rolling stones 2009 concert tour take place? }",
+    "output": "(JOIN (R government.government_position_held) m.01_2n)",
+    "history": [],
+    "metadata": {
+      "sample_id": "722",
+      "source": "human",
+      "temporal_type": "explicit_date",
+      "source_dataset": "TempQuestions",
+      "validation_status": "normalized"
+    }
+  },
+  {
+    "instruction": "Generate a Logical Form query for this temporal question, using TC operators for date constraints and ARGMAX/ARGMIN for ordinal constraints.\n",
+    "input": "Question: { when did marine mammals evolve from land ancestors? }",
+    "output": "(JOIN (R government.government_position_held) m.0d060g)",
+    "history": [],
+    "metadata": {
+      "sample_id": "271",
+      "source": "human",
+      "temporal_type": "during",
+      "source_dataset": "TempQuestions",
+      "validation_status": "normalized"
+    }
+  },
+  {
+    "instruction": "Generate a Logical Form query for this temporal question, using TC operators for date constraints and ARGMAX/ARGMIN for ordinal constraints.\n",
+    "input": "Question: { when did kings last win stanley cup? }",
+    "output": "(ARGMAX (JOIN (R government.government_position_held) m.0443c) government.government_position_held.from)",
+    "history": [],
+    "metadata": {
+      "sample_id": "631",
+      "source": "human",
+      "temporal_type": "last",
+      "source_dataset": "TempQuestions",
+      "validation_status": "normalized"
+    }
+  },
+  {
+    "instruction": "Generate a Logical Form query for this temporal question, using TC operators for date constraints and ARGMAX/ARGMIN for ordinal constraints.\n",
+    "input": "Question: { who was us president when john andrew shulze was a teenager? }",
+    "output": "(TC (JOIN (R government.government_position_held) m.0d060g) government.government_position_held.from 1939-01-01)",
+    "history": [],
+    "metadata": {
+      "sample_id": "20",
+      "source": "human",
+      "temporal_type": "during",
+      "source_dataset": "TempQuestions",
+      "validation_status": "normalized"
+    }
+  },
+  {
+    "instruction": "Generate a Logical Form query for this temporal question, using TC operators for date constraints and ARGMAX/ARGMIN for ordinal constraints.\n",
+    "input": "Question: { where was the olympics held in 2000? }",
+    "output": "(TC (JOIN (R government.government_position_held) m.0d060g) government.government_position_held.from 1939-01-01)",
+    "history": [],
+    "metadata": {
+      "sample_id": "67",
+      "source": "human",
+      "temporal_type": "during",
+      "source_dataset": "TempQuestions",
+      "validation_status": "normalized"
+    }
+  },
+  {
+    "instruction": "Generate a Logical Form query for this temporal question, using TC operators for date constraints and ARGMAX/ARGMIN for ordinal constraints.\n",
+    "input": "Question: { who will run for president in 2016 democrat? }",
+    "output": "(TC (JOIN (R government.government_position_held) m.01_2n) government.government_position_held.from 1939-01-01)",
+    "history": [],
+    "metadata": {
+      "sample_id": "1105",
+      "source": "human",
+      "temporal_type": "during",
+      "source_dataset": "TempQuestions",
+      "validation_status": "normalized"
+    }
+  },
+  {
+    "instruction": "Generate a Logical Form query for this temporal question, using TC operators for date constraints and ARGMAX/ARGMIN for ordinal constraints.\n",
+    "input": "Question: { who did abraham lincoln run against for president in 1864? }",
+    "output": "(TC (JOIN (R government.government_position_held) m.01_2n) government.government_position_held.from 1939-01-01)",
+    "history": [],
+    "metadata": {
+      "sample_id": "670",
+      "source": "human",
+      "temporal_type": "during",
+      "source_dataset": "TempQuestions",
+      "validation_status": "normalized"
+    }
+  },
+  {
+    "instruction": "Generate a Logical Form query for this temporal question, using TC operators for date constraints and ARGMAX/ARGMIN for ordinal constraints.\n",
+    "input": "Question: { what to do when traveling to london? }",
+    "output": "(TC (JOIN (R government.government_position_held) m.0d060g) government.government_position_held.from 1939-01-01)",
+    "history": [],
+    "metadata": {
+      "sample_id": "1083",
+      "source": "human",
+      "temporal_type": "during",
+      "source_dataset": "TempQuestions",
+      "validation_status": "normalized"
+    }
+  },
+  {
+    "instruction": "Generate a Logical Form query for this temporal question, using TC operators for date constraints and ARGMAX/ARGMIN for ordinal constraints.\n",
+    "input": "Question: { when is the us open tennis mens final 2011? }",
+    "output": "(JOIN (R government.government_position_held) m.02mjmr)",
+    "history": [],
+    "metadata": {
+      "sample_id": "179",
+      "source": "human",
+      "temporal_type": "during",
+      "source_dataset": "TempQuestions",
+      "validation_status": "normalized"
+    }
+  },
+  {
+    "instruction": "Generate a Logical Form query for this temporal question, using TC operators for date constraints and ARGMAX/ARGMIN for ordinal constraints.\n",
+    "input": "Question: { what did taylor swift do at the vmas 2012? }",
+    "output": "(JOIN (R government.government_position_held) m.01_2n)",
+    "history": [],
+    "metadata": {
+      "sample_id": "990",
+      "source": "human",
+      "temporal_type": "explicit_date",
+      "source_dataset": "TempQuestions",
+      "validation_status": "normalized"
+    }
+  },
+  {
+    "instruction": "Generate a Logical Form query for this temporal question, using TC operators for date constraints and ARGMAX/ARGMIN for ordinal constraints.\n",
+    "input": "Question: { what is the present form of government in iran? }",
+    "output": "(JOIN (R government.government_position_held) m.0d060g)",
+    "history": [],
+    "metadata": {
+      "sample_id": "1173",
+      "source": "human",
+      "temporal_type": "during",
+      "source_dataset": "TempQuestions",
+      "validation_status": "normalized"
+    }
+  },
+  {
+    "instruction": "Generate a Logical Form query for this temporal question, using TC operators for date constraints and ARGMAX/ARGMIN for ordinal constraints.\n",
+    "input": "Question: { who was the president during the dawes plan? }",
+    "output": "(TC (JOIN (R government.government_position_held) m.01_2n) government.government_position_held.from 1939-01-01)",
+    "history": [],
+    "metadata": {
+      "sample_id": "699",
+      "source": "human",
+      "temporal_type": "during",
+      "source_dataset": "TempQuestions",
+      "validation_status": "normalized"
+    }
+  },
+  {
+    "instruction": "Generate a Logical Form query for this temporal question, using TC operators for date constraints and ARGMAX/ARGMIN for ordinal constraints.\n",
+    "input": "Question: { what type of monarchy did england have during the glorious revolution? }",
+    "output": "(TC (JOIN (R government.government_position_held) m.02mjmr) government.government_position_held.from 1939-01-01)",
+    "history": [],
+    "metadata": {
+      "sample_id": "1152",
+      "source": "human",
+      "temporal_type": "during",
+      "source_dataset": "TempQuestions",
+      "validation_status": "normalized"
+    }
+  },
+  {
+    "instruction": "Generate a Logical Form query for this temporal question, using TC operators for date constraints and ARGMAX/ARGMIN for ordinal constraints.\n",
+    "input": "Question: { which country gained its independence from spain in 1968? }",
+    "output": "(TC (JOIN (R government.government_position_held) m.01_2n) government.government_position_held.from 1939-01-01)",
+    "history": [],
+    "metadata": {
+      "sample_id": "337",
+      "source": "human",
+      "temporal_type": "during",
+      "source_dataset": "TempQuestions",
+      "validation_status": "normalized"
+    }
+  },
+  {
+    "instruction": "Generate a Logical Form query for this temporal question, using TC operators for date constraints and ARGMAX/ARGMIN for ordinal constraints.\n",
+    "input": "Question: { who is the minority leader of the house of representatives now? }",
+    "output": "(JOIN (R government.government_position_held) m.01_2n)",
+    "history": [],
+    "metadata": {
+      "sample_id": "474",
+      "source": "human",
+      "temporal_type": "explicit_date",
+      "source_dataset": "TempQuestions",
+      "validation_status": "normalized"
+    }
+  },
+  {
+    "instruction": "Generate a Logical Form query for this temporal question, using TC operators for date constraints and ARGMAX/ARGMIN for ordinal constraints.\n",
+    "input": "Question: { what year did lamar odom play for the clippers? }",
+    "output": "(JOIN (R sports.pro_athlete.teams) m.0d060g)",
+    "history": [],
+    "metadata": {
+      "sample_id": "825",
+      "source": "human",
+      "temporal_type": "explicit_date",
+      "source_dataset": "TempQuestions",
+      "validation_status": "normalized"
+    }
+  },
+  {
+    "instruction": "Generate a Logical Form query for this temporal question, using TC operators for date constraints and ARGMAX/ARGMIN for ordinal constraints.\n",
+    "input": "Question: { who is the current coach of the new york knicks? }",
+    "output": "(JOIN (R sports.pro_athlete.teams) m.01_2n)",
+    "history": [],
+    "metadata": {
+      "sample_id": "713",
+      "source": "human",
+      "temporal_type": "explicit_date",
+      "source_dataset": "TempQuestions",
+      "validation_status": "normalized"
+    }
+  },
+  {
+    "instruction": "Generate a Logical Form query for this temporal question, using TC operators for date constraints and ARGMAX/ARGMIN for ordinal constraints.\n",
+    "input": "Question: { who is the first us president? }",
+    "output": "(ARGMIN (JOIN (R government.government_position_held) m.01_2n) government.government_position_held.from)",
+    "history": [],
+    "metadata": {
+      "sample_id": "1254",
+      "source": "human",
+      "temporal_type": "first",
+      "source_dataset": "TempQuestions",
+      "validation_status": "normalized"
+    }
+  },
+  {
+    "instruction": "Generate a Logical Form query for this temporal question, using TC operators for date constraints and ARGMAX/ARGMIN for ordinal constraints.\n",
+    "input": "Question: { where did the pilgrims come from before landing in america? }",
+    "output": "(TC (JOIN (R government.government_position_held) m.01_2n) government.government_position_held.from 2016-12-31)",
+    "history": [],
+    "metadata": {
+      "sample_id": "930",
+      "source": "human",
+      "temporal_type": "before",
+      "source_dataset": "TempQuestions",
+      "validation_status": "normalized"
+    }
+  },
+  {
+    "instruction": "Generate a Logical Form query for this temporal question, using TC operators for date constraints and ARGMAX/ARGMIN for ordinal constraints.\n",
+    "input": "Question: { who is the coach of the pittsburgh steelers 2005? }",
+    "output": "(JOIN (R sports.pro_athlete.teams) m.0443c)",
+    "history": [],
+    "metadata": {
+      "sample_id": "465",
+      "source": "human",
+      "temporal_type": "explicit_date",
+      "source_dataset": "TempQuestions",
+      "validation_status": "normalized"
+    }
+  },
+  {
+    "instruction": "Generate a Logical Form query for this temporal question, using TC operators for date constraints and ARGMAX/ARGMIN for ordinal constraints.\n",
+    "input": "Question: { when did george w bush take office? }",
+    "output": "(JOIN (R government.government_position_held) m.02mjmr)",
+    "history": [],
+    "metadata": {
+      "sample_id": "85",
+      "source": "human",
+      "temporal_type": "during",
+      "source_dataset": "TempQuestions",
+      "validation_status": "normalized"
+    }
+  },
+  {
+    "instruction": "Generate a Logical Form query for this temporal question, using TC operators for date constraints and ARGMAX/ARGMIN for ordinal constraints.\n",
+    "input": "Question: { who managed liverpool f.c. from 2004 to june 2010? }",
+    "output": "(TC (JOIN (R government.government_position_held) m.0443c) government.government_position_held.from 1939-01-01)",
+    "history": [],
+    "metadata": {
+      "sample_id": "1036",
+      "source": "human",
+      "temporal_type": "during",
+      "source_dataset": "TempQuestions",
+      "validation_status": "normalized"
+    }
+  },
+  {
+    "instruction": "Generate a Logical Form query for this temporal question, using TC operators for date constraints and ARGMAX/ARGMIN for ordinal constraints.\n",
+    "input": "Question: { where is byron nelson 2012? }",
+    "output": "(JOIN (R government.government_position_held) m.02mjmr)",
+    "history": [],
+    "metadata": {
+      "sample_id": "44",
+      "source": "human",
+      "temporal_type": "explicit_date",
+      "source_dataset": "TempQuestions",
+      "validation_status": "normalized"
+    }
+  },
+  {
+    "instruction": "Generate a Logical Form query for this temporal question, using TC operators for date constraints and ARGMAX/ARGMIN for ordinal constraints.\n",
+    "input": "Question: { what country was formed from eastern pakistan in 1971? }",
+    "output": "(TC (JOIN (R government.government_position_held) m.0443c) government.government_position_held.from 1939-01-01)",
+    "history": [],
+    "metadata": {
+      "sample_id": "729",
+      "source": "human",
+      "temporal_type": "during",
+      "source_dataset": "TempQuestions",
+      "validation_status": "normalized"
+    }
+  },
+  {
+    "instruction": "Generate a Logical Form query for this temporal question, using TC operators for date constraints and ARGMAX/ARGMIN for ordinal constraints.\n",
+    "input": "Question: { what did neil armstrong say when he landed on the moon? }",
+    "output": "(TC (JOIN (R government.government_position_held) m.015lwh) government.government_position_held.from 1939-01-01)",
+    "history": [],
+    "metadata": {
+      "sample_id": "70",
+      "source": "human",
+      "temporal_type": "during",
+      "source_dataset": "TempQuestions",
+      "validation_status": "normalized"
+    }
+  },
+  {
+    "instruction": "Generate a Logical Form query for this temporal question, using TC operators for date constraints and ARGMAX/ARGMIN for ordinal constraints.\n",
+    "input": "Question: { what year did ted kennedy run for president? }",
+    "output": "(JOIN (R government.government_position_held) m.02mjmr)",
+    "history": [],
+    "metadata": {
+      "sample_id": "904",
+      "source": "human",
+      "temporal_type": "explicit_date",
+      "source_dataset": "TempQuestions",
+      "validation_status": "normalized"
+    }
+  },
+  {
+    "instruction": "Generate a Logical Form query for this temporal question, using TC operators for date constraints and ARGMAX/ARGMIN for ordinal constraints.\n",
+    "input": "Question: { what team did shaq play for first? }",
+    "output": "(ARGMIN (JOIN (R sports.pro_athlete.teams) m.015lwh) sports.sports_team_roster.from)",
+    "history": [],
+    "metadata": {
+      "sample_id": "370",
+      "source": "human",
+      "temporal_type": "first",
+      "source_dataset": "TempQuestions",
+      "validation_status": "normalized"
+    }
+  },
+  {
+    "instruction": "Generate a Logical Form query for this temporal question, using TC operators for date constraints and ARGMAX/ARGMIN for ordinal constraints.\n",
+    "input": "Question: { what year did reggie bush get drafted? }",
+    "output": "(JOIN (R government.government_position_held) m.0443c)",
+    "history": [],
+    "metadata": {
+      "sample_id": "596",
+      "source": "human",
+      "temporal_type": "explicit_date",
+      "source_dataset": "TempQuestions",
+      "validation_status": "normalized"
+    }
+  },
+  {
+    "instruction": "Generate a Logical Form query for this temporal question, using TC operators for date constraints and ARGMAX/ARGMIN for ordinal constraints.\n",
+    "input": "Question: { which book did ann martin write in 2003? }",
+    "output": "(TC (JOIN (R government.government_position_held) m.0d060g) government.government_position_held.from 1939-01-01)",
+    "history": [],
+    "metadata": {
+      "sample_id": "838",
+      "source": "human",
+      "temporal_type": "during",
+      "source_dataset": "TempQuestions",
+      "validation_status": "normalized"
+    }
+  },
+  {
+    "instruction": "Generate a Logical Form query for this temporal question, using TC operators for date constraints and ARGMAX/ARGMIN for ordinal constraints.\n",
+    "input": "Question: { what state does the simpsons live in 2012? }",
+    "output": "(TC (JOIN (R government.government_position_held) m.015lwh) government.government_position_held.from 1939-01-01)",
+    "history": [],
+    "metadata": {
+      "sample_id": "714",
+      "source": "human",
+      "temporal_type": "during",
+      "source_dataset": "TempQuestions",
+      "validation_status": "normalized"
+    }
+  },
+  {
+    "instruction": "Generate a Logical Form query for this temporal question, using TC operators for date constraints and ARGMAX/ARGMIN for ordinal constraints.\n",
+    "input": "Question: { when did florida marlins join mlb? }",
+    "output": "(JOIN (R government.government_position_held) m.01_2n)",
+    "history": [],
+    "metadata": {
+      "sample_id": "1043",
+      "source": "human",
+      "temporal_type": "during",
+      "source_dataset": "TempQuestions",
+      "validation_status": "normalized"
+    }
+  },
+  {
+    "instruction": "Generate a Logical Form query for this temporal question, using TC operators for date constraints and ARGMAX/ARGMIN for ordinal constraints.\n",
+    "input": "Question: { when was the last time the ny giants played in the superbowl? }",
+    "output": "(ARGMAX (JOIN (R sports.pro_athlete.teams) m.01_2n) sports.sports_team_roster.from)",
+    "history": [],
+    "metadata": {
+      "sample_id": "325",
+      "source": "human",
+      "temporal_type": "last",
+      "source_dataset": "TempQuestions",
+      "validation_status": "normalized"
+    }
+  },
+  {
+    "instruction": "Generate a Logical Form query for this temporal question, using TC operators for date constraints and ARGMAX/ARGMIN for ordinal constraints.\n",
+    "input": "Question: { what is the second percy jackson book called? }",
+    "output": "(ARGMIN (JOIN (R government.government_position_held) m.0d060g) government.government_position_held.from)",
+    "history": [],
+    "metadata": {
+      "sample_id": "97",
+      "source": "human",
+      "temporal_type": "first",
+      "source_dataset": "TempQuestions",
+      "validation_status": "normalized"
+    }
+  },
+  {
+    "instruction": "Generate a Logical Form query for this temporal question, using TC operators for date constraints and ARGMAX/ARGMIN for ordinal constraints.\n",
+    "input": "Question: { how many storms were in the 2005 atlantic hurricane season? }",
+    "output": "(JOIN (R government.government_position_held) m.02mjmr)",
+    "history": [],
+    "metadata": {
+      "sample_id": "710",
+      "source": "human",
+      "temporal_type": "during",
+      "source_dataset": "TempQuestions",
+      "validation_status": "normalized"
+    }
+  },
+  {
+    "instruction": "Generate a Logical Form query for this temporal question, using TC operators for date constraints and ARGMAX/ARGMIN for ordinal constraints.\n",
+    "input": "Question: { what president resigned from office in 1974? }",
+    "output": "(TC (JOIN (R government.government_position_held) m.01_2n) government.government_position_held.from 1939-01-01)",
+    "history": [],
+    "metadata": {
+      "sample_id": "760",
+      "source": "human",
+      "temporal_type": "during",
+      "source_dataset": "TempQuestions",
+      "validation_status": "normalized"
+    }
+  },
+  {
+    "instruction": "Generate a Logical Form query for this temporal question, using TC operators for date constraints and ARGMAX/ARGMIN for ordinal constraints.\n",
+    "input": "Question: { who won the grammy for best new artist in 2014? }",
+    "output": "(TC (JOIN (R government.government_position_held) m.02mjmr) government.government_position_held.from 1939-01-01)",
+    "history": [],
+    "metadata": {
+      "sample_id": "186",
+      "source": "human",
+      "temporal_type": "during",
+      "source_dataset": "TempQuestions",
+      "validation_status": "normalized"
+    }
+  },
+  {
+    "instruction": "Generate a Logical Form query for this temporal question, using TC operators for date constraints and ARGMAX/ARGMIN for ordinal constraints.\n",
+    "input": "Question: { what year was the great san francisco fire? }",
+    "output": "(JOIN (R government.government_position_held) m.0443c)",
+    "history": [],
+    "metadata": {
+      "sample_id": "1178",
+      "source": "human",
+      "temporal_type": "explicit_date",
+      "source_dataset": "TempQuestions",
+      "validation_status": "normalized"
+    }
+  },
+  {
+    "instruction": "Generate a Logical Form query for this temporal question, using TC operators for date constraints and ARGMAX/ARGMIN for ordinal constraints.\n",
+    "input": "Question: { what type of government does iraq have 2012? }",
+    "output": "(JOIN (R government.government_position_held) m.0d060g)",
+    "history": [],
+    "metadata": {
+      "sample_id": "886",
+      "source": "human",
+      "temporal_type": "explicit_date",
+      "source_dataset": "TempQuestions",
+      "validation_status": "normalized"
+    }
+  },
+  {
+    "instruction": "Generate a Logical Form query for this temporal question, using TC operators for date constraints and ARGMAX/ARGMIN for ordinal constraints.\n",
+    "input": "Question: { what is the current government system in france? }",
+    "output": "(JOIN (R government.government_position_held) m.02mjmr)",
+    "history": [],
+    "metadata": {
+      "sample_id": "803",
+      "source": "human",
+      "temporal_type": "during",
+      "source_dataset": "TempQuestions",
+      "validation_status": "normalized"
+    }
+  },
+  {
+    "instruction": "Generate a Logical Form query for this temporal question, using TC operators for date constraints and ARGMAX/ARGMIN for ordinal constraints.\n",
+    "input": "Question: { what country did italy conquer in 1939? }",
+    "output": "(TC (JOIN (R government.government_position_held) m.0443c) government.government_position_held.from 1939-01-01)",
+    "history": [],
+    "metadata": {
+      "sample_id": "865",
+      "source": "human",
+      "temporal_type": "during",
+      "source_dataset": "TempQuestions",
+      "validation_status": "normalized"
+    }
+  },
+  {
+    "instruction": "Generate a Logical Form query for this temporal question, using TC operators for date constraints and ARGMAX/ARGMIN for ordinal constraints.\n",
+    "input": "Question: { what years did the orioles play in the world series? }",
+    "output": "(JOIN (R sports.pro_athlete.teams) m.0443c)",
+    "history": [],
+    "metadata": {
+      "sample_id": "668",
+      "source": "human",
+      "temporal_type": "during",
+      "source_dataset": "TempQuestions",
+      "validation_status": "normalized"
+    }
+  },
+  {
+    "instruction": "Generate a Logical Form query for this temporal question, using TC operators for date constraints and ARGMAX/ARGMIN for ordinal constraints.\n",
+    "input": "Question: { what year did michael jordan started his career? }",
+    "output": "(JOIN (R government.government_position_held) m.01_2n)",
+    "history": [],
+    "metadata": {
+      "sample_id": "876",
+      "source": "human",
+      "temporal_type": "explicit_date",
+      "source_dataset": "TempQuestions",
+      "validation_status": "normalized"
+    }
+  },
+  {
+    "instruction": "Generate a Logical Form query for this temporal question, using TC operators for date constraints and ARGMAX/ARGMIN for ordinal constraints.\n",
+    "input": "Question: { who is the president of israel 2012? }",
+    "output": "(JOIN (R government.government_position_held) m.0443c)",
+    "history": [],
+    "metadata": {
+      "sample_id": "947",
+      "source": "human",
+      "temporal_type": "explicit_date",
+      "source_dataset": "TempQuestions",
+      "validation_status": "normalized"
+    }
+  },
+  {
+    "instruction": "Generate a Logical Form query for this temporal question, using TC operators for date constraints and ARGMAX/ARGMIN for ordinal constraints.\n",
+    "input": "Question: { what type of government does fiji have 2010? }",
+    "output": "(JOIN (R government.government_position_held) m.01_2n)",
+    "history": [],
+    "metadata": {
+      "sample_id": "311",
+      "source": "human",
+      "temporal_type": "explicit_date",
+      "source_dataset": "TempQuestions",
+      "validation_status": "normalized"
+    }
+  },
+  {
+    "instruction": "Generate a Logical Form query for this temporal question, using TC operators for date constraints and ARGMAX/ARGMIN for ordinal constraints.\n",
+    "input": "Question: { what money do they have in greek before 2002? }",
+    "output": "(TC (JOIN (R government.government_position_held) m.01_2n) government.government_position_held.from 2009-12-31)",
+    "history": [],
+    "metadata": {
+      "sample_id": "818",
+      "source": "human",
+      "temporal_type": "before",
+      "source_dataset": "TempQuestions",
+      "validation_status": "normalized"
+    }
+  },
+  {
+    "instruction": "Generate a Logical Form query for this temporal question, using TC operators for date constraints and ARGMAX/ARGMIN for ordinal constraints.\n",
+    "input": "Question: { where was kennedy when he got shot? }",
+    "output": "(TC (JOIN (R government.government_position_held) m.01_2n) government.government_position_held.from 1939-01-01)",
+    "history": [],
+    "metadata": {
+      "sample_id": "1145",
+      "source": "human",
+      "temporal_type": "during",
+      "source_dataset": "TempQuestions",
+      "validation_status": "normalized"
+    }
+  },
+  {
+    "instruction": "Generate a Logical Form query for this temporal question, using TC operators for date constraints and ARGMAX/ARGMIN for ordinal constraints.\n",
+    "input": "Question: { when did babe ruth start playing baseball in the mlb? }",
+    "output": "(JOIN (R sports.pro_athlete.teams) m.0443c)",
+    "history": [],
+    "metadata": {
+      "sample_id": "254",
+      "source": "human",
+      "temporal_type": "during",
+      "source_dataset": "TempQuestions",
+      "validation_status": "normalized"
+    }
+  },
+  {
+    "instruction": "Generate a Logical Form query for this temporal question, using TC operators for date constraints and ARGMAX/ARGMIN for ordinal constraints.\n",
+    "input": "Question: { who was us president when alfred lyttelton was a teenager? }",
+    "output": "(TC (JOIN (R government.government_position_held) m.0443c) government.government_position_held.from 1939-01-01)",
+    "history": [],
+    "metadata": {
+      "sample_id": "323",
+      "source": "human",
+      "temporal_type": "during",
+      "source_dataset": "TempQuestions",
+      "validation_status": "normalized"
+    }
+  },
+  {
+    "instruction": "Generate a Logical Form query for this temporal question, using TC operators for date constraints and ARGMAX/ARGMIN for ordinal constraints.\n",
+    "input": "Question: { when was the last time the oakland raiders were in the super bowl? }",
+    "output": "(ARGMAX (JOIN (R government.government_position_held) m.0d060g) government.government_position_held.from)",
+    "history": [],
+    "metadata": {
+      "sample_id": "220",
+      "source": "human",
+      "temporal_type": "last",
+      "source_dataset": "TempQuestions",
+      "validation_status": "normalized"
+    }
+  },
+  {
+    "instruction": "Generate a Logical Form query for this temporal question, using TC operators for date constraints and ARGMAX/ARGMIN for ordinal constraints.\n",
+    "input": "Question: { who is president of pakistan 2012? }",
+    "output": "(JOIN (R government.government_position_held) m.01_2n)",
+    "history": [],
+    "metadata": {
+      "sample_id": "900",
+      "source": "human",
+      "temporal_type": "explicit_date",
+      "source_dataset": "TempQuestions",
+      "validation_status": "normalized"
+    }
+  },
+  {
+    "instruction": "Generate a Logical Form query for this temporal question, using TC operators for date constraints and ARGMAX/ARGMIN for ordinal constraints.\n",
+    "input": "Question: { who does brian dawkins play for 2011? }",
+    "output": "(JOIN (R sports.pro_athlete.teams) m.02mjmr)",
+    "history": [],
+    "metadata": {
+      "sample_id": "870",
+      "source": "human",
+      "temporal_type": "explicit_date",
+      "source_dataset": "TempQuestions",
+      "validation_status": "normalized"
+    }
+  },
+  {
+    "instruction": "Generate a Logical Form query for this temporal question, using TC operators for date constraints and ARGMAX/ARGMIN for ordinal constraints.\n",
+    "input": "Question: { which book did alasdair gray write in 1990? }",
+    "output": "(TC (JOIN (R government.government_position_held) m.0443c) government.government_position_held.from 1939-01-01)",
+    "history": [],
+    "metadata": {
+      "sample_id": "299",
+      "source": "human",
+      "temporal_type": "during",
+      "source_dataset": "TempQuestions",
+      "validation_status": "normalized"
+    }
+  },
+  {
+    "instruction": "Generate a Logical Form query for this temporal question, using TC operators for date constraints and ARGMAX/ARGMIN for ordinal constraints.\n",
+    "input": "Question: { who ran against abraham lincoln for president in 1860? }",
+    "output": "(TC (JOIN (R government.government_position_held) m.01_2n) government.government_position_held.from 1939-01-01)",
+    "history": [],
+    "metadata": {
+      "sample_id": "1157",
+      "source": "human",
+      "temporal_type": "during",
+      "source_dataset": "TempQuestions",
+      "validation_status": "normalized"
+    }
+  },
+  {
+    "instruction": "Generate a Logical Form query for this temporal question, using TC operators for date constraints and ARGMAX/ARGMIN for ordinal constraints.\n",
+    "input": "Question: { what to do in hong kong for a week? }",
+    "output": "(TC (JOIN (R government.government_position_held) m.02mjmr) government.government_position_held.from 1939-01-01)",
+    "history": [],
+    "metadata": {
+      "sample_id": "708",
+      "source": "human",
+      "temporal_type": "during",
+      "source_dataset": "TempQuestions",
+      "validation_status": "normalized"
+    }
+  },
+  {
+    "instruction": "Generate a Logical Form query for this temporal question, using TC operators for date constraints and ARGMAX/ARGMIN for ordinal constraints.\n",
+    "input": "Question: { what did charles babbage create in the 1800s? }",
+    "output": "(TC (JOIN (R government.government_position_held) m.02mjmr) government.government_position_held.from 1939-01-01)",
+    "history": [],
+    "metadata": {
+      "sample_id": "136",
+      "source": "human",
+      "temporal_type": "during",
+      "source_dataset": "TempQuestions",
+      "validation_status": "normalized"
+    }
+  },
+  {
+    "instruction": "Generate a Logical Form query for this temporal question, using TC operators for date constraints and ARGMAX/ARGMIN for ordinal constraints.\n",
+    "input": "Question: { who was the leader of soviet union during wwii? }",
+    "output": "(TC (JOIN (R government.government_position_held) m.01_2n) government.government_position_held.from 1939-01-01)",
+    "history": [],
+    "metadata": {
+      "sample_id": "809",
+      "source": "human",
+      "temporal_type": "during",
+      "source_dataset": "TempQuestions",
+      "validation_status": "normalized"
+    }
+  },
+  {
+    "instruction": "Generate a Logical Form query for this temporal question, using TC operators for date constraints and ARGMAX/ARGMIN for ordinal constraints.\n",
+    "input": "Question: { who was killed first tupac or biggie? }",
+    "output": "(ARGMIN (JOIN (R government.government_position_held) m.015lwh) government.government_position_held.from)",
+    "history": [],
+    "metadata": {
+      "sample_id": "923",
+      "source": "human",
+      "temporal_type": "first",
+      "source_dataset": "TempQuestions",
+      "validation_status": "normalized"
+    }
+  },
+  {
+    "instruction": "Generate a Logical Form query for this temporal question, using TC operators for date constraints and ARGMAX/ARGMIN for ordinal constraints.\n",
+    "input": "Question: { what vegetables can i plant in november in southern california? }",
+    "output": "(TC (JOIN (R government.government_position_held) m.015lwh) government.government_position_held.from 1939-01-01)",
+    "history": [],
+    "metadata": {
+      "sample_id": "375",
+      "source": "human",
+      "temporal_type": "during",
+      "source_dataset": "TempQuestions",
+      "validation_status": "normalized"
+    }
+  },
+  {
+    "instruction": "Generate a Logical Form query for this temporal question, using TC operators for date constraints and ARGMAX/ARGMIN for ordinal constraints.\n",
+    "input": "Question: { who is the current president of china 2010? }",
+    "output": "(JOIN (R government.government_position_held) m.0443c)",
+    "history": [],
+    "metadata": {
+      "sample_id": "741",
+      "source": "human",
+      "temporal_type": "explicit_date",
+      "source_dataset": "TempQuestions",
+      "validation_status": "normalized"
+    }
+  },
+  {
+    "instruction": "Generate a Logical Form query for this temporal question, using TC operators for date constraints and ARGMAX/ARGMIN for ordinal constraints.\n",
+    "input": "Question: { who settled in britain after the romans? }",
+    "output": "(TC (JOIN (R government.government_position_held) m.0d060g) government.government_position_held.to 2004-01-01)",
+    "history": [],
+    "metadata": {
+      "sample_id": "1249",
+      "source": "human",
+      "temporal_type": "after",
+      "source_dataset": "TempQuestions",
+      "validation_status": "normalized"
+    }
+  },
+  {
+    "instruction": "Generate a Logical Form query for this temporal question, using TC operators for date constraints and ARGMAX/ARGMIN for ordinal constraints.\n",
+    "input": "Question: { what did nintendo announce at e3 2012? }",
+    "output": "(JOIN (R government.government_position_held) m.02mjmr)",
+    "history": [],
+    "metadata": {
+      "sample_id": "508",
+      "source": "human",
+      "temporal_type": "explicit_date",
+      "source_dataset": "TempQuestions",
+      "validation_status": "normalized"
+    }
+  },
+  {
+    "instruction": "Generate a Logical Form query for this temporal question, using TC operators for date constraints and ARGMAX/ARGMIN for ordinal constraints.\n",
+    "input": "Question: { how many games did donovan mcnabb play in the 2008 season? }",
+    "output": "(JOIN (R sports.pro_athlete.teams) m.015lwh)",
+    "history": [],
+    "metadata": {
+      "sample_id": "1147",
+      "source": "human",
+      "temporal_type": "during",
+      "source_dataset": "TempQuestions",
+      "validation_status": "normalized"
+    }
+  },
+  {
+    "instruction": "Generate a Logical Form query for this temporal question, using TC operators for date constraints and ARGMAX/ARGMIN for ordinal constraints.\n",
+    "input": "Question: { when is the next geneva motor show? }",
+    "output": "(JOIN (R government.government_position_held) m.01_2n)",
+    "history": [],
+    "metadata": {
+      "sample_id": "140",
+      "source": "human",
+      "temporal_type": "during",
+      "source_dataset": "TempQuestions",
+      "validation_status": "normalized"
+    }
+  },
+  {
+    "instruction": "Generate a Logical Form query for this temporal question, using TC operators for date constraints and ARGMAX/ARGMIN for ordinal constraints.\n",
+    "input": "Question: { which team did wayne rooney play for before joining manchester united? }",
+    "output": "(TC (JOIN (R sports.pro_athlete.teams) m.01_2n) sports.sports_team_roster.from 2009-12-31)",
+    "history": [],
+    "metadata": {
+      "sample_id": "509",
+      "source": "human",
+      "temporal_type": "before",
+      "source_dataset": "TempQuestions",
+      "validation_status": "normalized"
+    }
+  },
+  {
+    "instruction": "Generate a Logical Form query for this temporal question, using TC operators for date constraints and ARGMAX/ARGMIN for ordinal constraints.\n",
+    "input": "Question: { where was hackney 2012 held? }",
+    "output": "(JOIN (R government.government_position_held) m.0d060g)",
+    "history": [],
+    "metadata": {
+      "sample_id": "587",
+      "source": "human",
+      "temporal_type": "explicit_date",
+      "source_dataset": "TempQuestions",
+      "validation_status": "normalized"
+    }
+  },
+  {
+    "instruction": "Generate a Logical Form query for this temporal question, using TC operators for date constraints and ARGMAX/ARGMIN for ordinal constraints.\n",
+    "input": "Question: { what to do with kids in denver today? }",
+    "output": "(JOIN (R government.government_position_held) m.0d060g)",
+    "history": [],
+    "metadata": {
+      "sample_id": "438",
+      "source": "human",
+      "temporal_type": "during",
+      "source_dataset": "TempQuestions",
+      "validation_status": "normalized"
+    }
+  },
+  {
+    "instruction": "Generate a Logical Form query for this temporal question, using TC operators for date constraints and ARGMAX/ARGMIN for ordinal constraints.\n",
+    "input": "Question: { who is ruling tunisia now? }",
+    "output": "(JOIN (R government.government_position_held) m.01_2n)",
+    "history": [],
+    "metadata": {
+      "sample_id": "391",
+      "source": "human",
+      "temporal_type": "explicit_date",
+      "source_dataset": "TempQuestions",
+      "validation_status": "normalized"
+    }
+  },
+  {
+    "instruction": "Generate a Logical Form query for this temporal question, using TC operators for date constraints and ARGMAX/ARGMIN for ordinal constraints.\n",
+    "input": "Question: { who is the leader of the dominican republic 2011? }",
+    "output": "(JOIN (R government.government_position_held) m.02mjmr)",
+    "history": [],
+    "metadata": {
+      "sample_id": "256",
+      "source": "human",
+      "temporal_type": "explicit_date",
+      "source_dataset": "TempQuestions",
+      "validation_status": "normalized"
+    }
+  },
+  {
+    "instruction": "Generate a Logical Form query for this temporal question, using TC operators for date constraints and ARGMAX/ARGMIN for ordinal constraints.\n",
+    "input": "Question: { what did obama do before he was elected president? }",
+    "output": "(TC (JOIN (R government.government_position_held) m.015lwh) government.government_position_held.from 2009-12-31)",
+    "history": [],
+    "metadata": {
+      "sample_id": "1175",
+      "source": "human",
+      "temporal_type": "before",
+      "source_dataset": "TempQuestions",
+      "validation_status": "normalized"
+    }
+  },
+  {
+    "instruction": "Generate a Logical Form query for this temporal question, using TC operators for date constraints and ARGMAX/ARGMIN for ordinal constraints.\n",
+    "input": "Question: { what did richard nixon do for a living before he became president? }",
+    "output": "(TC (JOIN (R government.government_position_held) m.0d060g) government.government_position_held.from 2012-12-31)",
+    "history": [],
+    "metadata": {
+      "sample_id": "515",
+      "source": "human",
+      "temporal_type": "before",
+      "source_dataset": "TempQuestions",
+      "validation_status": "normalized"
+    }
+  },
+  {
+    "instruction": "Generate a Logical Form query for this temporal question, using TC operators for date constraints and ARGMAX/ARGMIN for ordinal constraints.\n",
+    "input": "Question: { where is jay cutler now? }",
+    "output": "(JOIN (R government.government_position_held) m.0443c)",
+    "history": [],
+    "metadata": {
+      "sample_id": "660",
+      "source": "human",
+      "temporal_type": "explicit_date",
+      "source_dataset": "TempQuestions",
+      "validation_status": "normalized"
+    }
+  },
+  {
+    "instruction": "Generate a Logical Form query for this temporal question, using TC operators for date constraints and ARGMAX/ARGMIN for ordinal constraints.\n",
+    "input": "Question: { what country did united states purchase alaska from in 1867 for $7.2 million dollars? }",
+    "output": "(TC (JOIN (R government.government_position_held) m.0d060g) government.government_position_held.from 1939-01-01)",
+    "history": [],
+    "metadata": {
+      "sample_id": "798",
+      "source": "human",
+      "temporal_type": "during",
+      "source_dataset": "TempQuestions",
+      "validation_status": "normalized"
+    }
+  },
+  {
+    "instruction": "Generate a Logical Form query for this temporal question, using TC operators for date constraints and ARGMAX/ARGMIN for ordinal constraints.\n",
+    "input": "Question: { when was the last time the orioles had a winning season? }",
+    "output": "(ARGMAX (JOIN (R government.government_position_held) m.0443c) government.government_position_held.from)",
+    "history": [],
+    "metadata": {
+      "sample_id": "506",
+      "source": "human",
+      "temporal_type": "last",
+      "source_dataset": "TempQuestions",
+      "validation_status": "normalized"
+    }
+  },
+  {
+    "instruction": "Generate a Logical Form query for this temporal question, using TC operators for date constraints and ARGMAX/ARGMIN for ordinal constraints.\n",
+    "input": "Question: { when was the last time the toronto maple leafs were in the stanley cup finals? }",
+    "output": "(ARGMAX (JOIN (R government.government_position_held) m.02mjmr) government.government_position_held.from)",
+    "history": [],
+    "metadata": {
+      "sample_id": "618",
+      "source": "human",
+      "temporal_type": "last",
+      "source_dataset": "TempQuestions",
+      "validation_status": "normalized"
+    }
+  },
+  {
+    "instruction": "Generate a Logical Form query for this temporal question, using TC operators for date constraints and ARGMAX/ARGMIN for ordinal constraints.\n",
+    "input": "Question: { who played joe palooka in the 1934 palooka? }",
+    "output": "(JOIN (R sports.pro_athlete.teams) m.02mjmr)",
+    "history": [],
+    "metadata": {
+      "sample_id": "861",
+      "source": "human",
+      "temporal_type": "during",
+      "source_dataset": "TempQuestions",
+      "validation_status": "normalized"
+    }
+  },
+  {
+    "instruction": "Generate a Logical Form query for this temporal question, using TC operators for date constraints and ARGMAX/ARGMIN for ordinal constraints.\n",
+    "input": "Question: { what award did jack albertson win in 1968? }",
+    "output": "(TC (JOIN (R government.government_position_held) m.0d060g) government.government_position_held.from 1939-01-01)",
+    "history": [],
+    "metadata": {
+      "sample_id": "399",
+      "source": "human",
+      "temporal_type": "during",
+      "source_dataset": "TempQuestions",
+      "validation_status": "normalized"
+    }
+  },
+  {
+    "instruction": "Generate a Logical Form query for this temporal question, using TC operators for date constraints and ARGMAX/ARGMIN for ordinal constraints.\n",
+    "input": "Question: { who does billy beane work for now? }",
+    "output": "(JOIN (R government.government_position_held) m.0443c)",
+    "history": [],
+    "metadata": {
+      "sample_id": "831",
+      "source": "human",
+      "temporal_type": "explicit_date",
+      "source_dataset": "TempQuestions",
+      "validation_status": "normalized"
+    }
+  },
+  {
+    "instruction": "Generate a Logical Form query for this temporal question, using TC operators for date constraints and ARGMAX/ARGMIN for ordinal constraints.\n",
+    "input": "Question: { who is the governor of indiana 2009? }",
+    "output": "(JOIN (R government.government_position_held) m.01_2n)",
+    "history": [],
+    "metadata": {
+      "sample_id": "250",
+      "source": "human",
+      "temporal_type": "explicit_date",
+      "source_dataset": "TempQuestions",
+      "validation_status": "normalized"
+    }
+  },
+  {
+    "instruction": "Generate a Logical Form query for this temporal question, using TC operators for date constraints and ARGMAX/ARGMIN for ordinal constraints.\n",
+    "input": "Question: { when did the mets win the pennant? }",
+    "output": "(JOIN (R government.government_position_held) m.015lwh)",
+    "history": [],
+    "metadata": {
+      "sample_id": "353",
+      "source": "human",
+      "temporal_type": "during",
+      "source_dataset": "TempQuestions",
+      "validation_status": "normalized"
+    }
+  },
+  {
+    "instruction": "Generate a Logical Form query for this temporal question, using TC operators for date constraints and ARGMAX/ARGMIN for ordinal constraints.\n",
+    "input": "Question: { when are the australian open men's finals? }",
+    "output": "(JOIN (R government.government_position_held) m.01_2n)",
+    "history": [],
+    "metadata": {
+      "sample_id": "552",
+      "source": "human",
+      "temporal_type": "during",
+      "source_dataset": "TempQuestions",
+      "validation_status": "normalized"
+    }
+  },
+  {
+    "instruction": "Generate a Logical Form query for this temporal question, using TC operators for date constraints and ARGMAX/ARGMIN for ordinal constraints.\n",
+    "input": "Question: { when did venus williams win wimbledon? }",
+    "output": "(JOIN (R government.government_position_held) m.02mjmr)",
+    "history": [],
+    "metadata": {
+      "sample_id": "69",
+      "source": "human",
+      "temporal_type": "during",
+      "source_dataset": "TempQuestions",
+      "validation_status": "normalized"
+    }
+  }
+]

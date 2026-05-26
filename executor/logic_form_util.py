@@ -3,7 +3,7 @@ from typing import List, Union
 from collections import defaultdict
 from pathlib import Path
 from tqdm import tqdm
-from executor.sparql_executor import execute_query
+# Lazy import: from executor.sparql_executor import execute_query
 import re
 import json
 
@@ -752,6 +752,7 @@ if __name__=='__main__':
     sexpr = '(JOIN (R government.government_position_held.office_holder) (TC (JOIN (R government.governmental_jurisdiction.governing_officials) (JOIN location.country.national_anthem (JOIN government.national_anthem_of_a_country.anthem m.0gg95zf))) government.government_position_held.from now))'    
     sparql = lisp_to_sparql(sexpr)
     print(sparql)
+    from executor.sparql_executor import execute_query
     res = execute_query(sparql)
     print(res)
 

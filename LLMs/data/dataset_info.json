@@ -34,5 +34,41 @@
       "response": "output",
       "history": "history"
     }
+  },
+  "TempQuestions_Freebase_NQ_train": {
+    "script_url": "TempQuestions_Freebase_NQ_train",
+    "columns": {
+      "prompt": "instruction",
+      "query": "input",
+      "response": "output",
+      "history": "history"
+    }
+  },
+  "TempQuestions_Freebase_NQ_test": {
+    "script_url": "TempQuestions_Freebase_NQ_test",
+    "columns": {
+      "prompt": "instruction",
+      "query": "input",
+      "response": "output",
+      "history": "history"
+    }
+  },
+  "TChatKBQA_Freebase_NQ_train": {
+    "script_url": "TChatKBQA_Freebase_NQ_train",
+    "columns": {
+      "prompt": "instruction",
+      "query": "input",
+      "response": "output",
+      "history": "history"
+    }
+  },
+  "TChatKBQA_Freebase_NQ_test": {
+    "script_url": "TChatKBQA_Freebase_NQ_test",
+    "columns": {
+      "prompt": "instruction",
+      "query": "input",
+      "response": "output",
+      "history": "history"
+    }
   }
 }

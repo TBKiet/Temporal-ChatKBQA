@@ -53,6 +53,8 @@ class ASTNode:
             return CompNode(tok, data_type, fields)
         elif tok in ['ARGMIN', 'ARGMAX']:
             return ArgNode(tok, data_type, fields)
+        elif tok == 'TC':
+            return TCNode(data_type, fields)
         elif tok.startswith('m.'):
             return EntityNode(tok, data_type, fields)
         elif '^^http://www.w3.org/2001/XMLSchema' in tok:
@@ -160,10 +162,22 @@ class CompNode(ASTNode):
 
     def __init__(self, val, data_type, fields):
         super().__init__('COMP', val, data_type, fields)
-    
+
     def textual_form_core(self):
         prompt = CompNode.PROMPT_DICT[self.val]
         return ' '.join([self.fields[0].textual_form(), prompt, self.fields[1].textual_form()])
+
+# temporal constraint
+class TCNode(ASTNode):
+    """Temporal Constraint node: (TC (JOIN ...) relation.from time_point)."""
+    def __init__(self, data_type, fields):
+        super().__init__('TC', 'TC', data_type, fields)
+
+    def textual_form_core(self):
+        inner = self.fields[0].textual_form()
+        relation = self.fields[1].textual_form() if len(self.fields) > 1 else ''
+        time_val = self.fields[2].textual_form() if len(self.fields) > 2 else ''
+        return f'{inner} where {relation} includes {time_val}'
 
 class EntityNode(ASTNode):
     def __init__(self, val, data_type, fields):
@@ -208,6 +222,11 @@ def _consume_a_node(tokens, cursor, data_type):
         left, cursor = _consume_a_node(tokens, cursor, ASTNode.UNARY)
         right, cursor = _consume_a_node(tokens, cursor, ASTNode.BINARY)
         node = ASTNode.build(cur_tok, data_type, [left, right])
+    elif cur_tok == 'TC':
+        child, cursor = _consume_a_node(tokens, cursor, ASTNode.UNARY)
+        rel, cursor = _consume_a_node(tokens, cursor, ASTNode.UNARY)
+        time_val, cursor = _consume_a_node(tokens, cursor, ASTNode.UNARY)
+        node = ASTNode.build(cur_tok, data_type, [child, rel, time_val])
     elif cur_tok == 'le' or cur_tok == 'lt' or cur_tok == 'ge' or cur_tok == 'gt':
         left, cursor = _consume_a_node(tokens, cursor, ASTNode.UNARY)
         right, cursor = _consume_a_node(tokens, cursor, ASTNode.UNARY)

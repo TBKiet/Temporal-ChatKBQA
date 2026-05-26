@@ -1,0 +1,142 @@
+# Temporal Relation Whitelist for T-ChatKBQA
+#
+# Each family maps a Freebase CVT relation to its temporal fields
+# and supported template types. Only families declared here are
+# mined and used for synthetic training data generation.
+#
+# Fields:
+#   family:              short identifier for logs and provenance
+#   anchor_relation:     the CVT relation (topic entity side)
+#   answer_relation:     points to the answer entity within the CVT
+#   temporal_field:      CVT property holding date/ordering info
+#   temporal_field_type: "date_range" | "date_point" | "ordering"
+#   second_temporal:     optional second temporal field (for date_range)
+#   answer_type:         "entity" | "date" | "literal"
+#   topic_label_hint:    human-readable name for the topic role
+#   answer_label_hint:   human-readable name for the answer role
+#   supported_templates: list of template families to generate
+
+families:
+  # ── Sports ──────────────────────────────────────────────
+  - family: sports_team
+    anchor_relation: sports.pro_athlete.teams
+    answer_relation: sports.pro_athlete.teams.office_holder
+    temporal_field: sports.pro_athlete.teams.from
+    temporal_field_type: date_range
+    answer_type: entity
+    topic_label_hint: "athlete"
+    answer_label_hint: "team"
+    supported_templates: [simple, during, first, last, before, after]
+
+  # ── Film ────────────────────────────────────────────────
+  - family: film_starring
+    anchor_relation: film.film.starring
+    answer_relation: film.film.starring.office_holder
+    temporal_field: film.film.starring.from
+    temporal_field_type: date_point
+    answer_type: entity
+    topic_label_hint: "film"
+    answer_label_hint: "actor"
+    supported_templates: [simple, during, first, last]
+
+  - family: film_directed_by
+    anchor_relation: film.film.directed_by
+    answer_relation: film.film.directed_by.office_holder
+    temporal_field: film.film.directed_by.from
+    temporal_field_type: date_point
+    answer_type: entity
+    topic_label_hint: "film"
+    answer_label_hint: "director"
+    supported_templates: [simple, during, first, last]
+
+  # ── Music ───────────────────────────────────────────────
+  - family: music_album
+    anchor_relation: music.artist.album
+    answer_relation: music.artist.album.office_holder
+    temporal_field: music.artist.album.from
+    temporal_field_type: date_point
+    answer_type: entity
+    topic_label_hint: "artist"
+    answer_label_hint: "album"
+    supported_templates: [simple, during, first, last]
+
+  # ── People / Life Events ────────────────────────────────
+  - family: marriage
+    anchor_relation: people.marriage.spouse
+    answer_relation: people.marriage.spouse.office_holder
+    temporal_field: people.marriage.spouse.from
+    temporal_field_type: date_range
+    answer_type: entity
+    topic_label_hint: "person"
+    answer_label_hint: "spouse"
+    supported_templates: [simple, during, first, last, before, after]
+
+  - family: date_of_birth
+    anchor_relation: people.person.date_of_birth
+    answer_relation: people.person.date_of_birth.office_holder
+    temporal_field: people.person.date_of_birth.from
+    temporal_field_type: date_point
+    answer_type: date
+    topic_label_hint: "person"
+    answer_label_hint: "birth date"
+    supported_templates: [simple]
+
+  - family: date_of_death
+    anchor_relation: people.person.date_of_death
+    answer_relation: people.person.date_of_death.office_holder
+    temporal_field: people.person.date_of_death.from
+    temporal_field_type: date_point
+    answer_type: date
+    topic_label_hint: "person"
+    answer_label_hint: "death date"
+    supported_templates: [simple]
+
+  # ── Books ───────────────────────────────────────────────
+  - family: book_author
+    anchor_relation: book.book.author
+    answer_relation: book.book.author.office_holder
+    temporal_field: book.book.author.from
+    temporal_field_type: date_point
+    answer_type: entity
+    topic_label_hint: "book"
+    answer_label_hint: "author"
+    supported_templates: [simple, during, first, last]
+
+  # ── Awards ──────────────────────────────────────────────
+  - family: award_nomination
+    anchor_relation: award.award_nominee.award_nominations
+    answer_relation: award.award_nominee.award_nominations.office_holder
+    temporal_field: award.award_nominee.award_nominations.from
+    temporal_field_type: date_point
+    answer_type: entity
+    topic_label_hint: "award"
+    answer_label_hint: "nominee"
+    supported_templates: [simple, during, first, last]
+
+  # ── Government (use with caution — dominant corruption source) ──
+  - family: government_position
+    anchor_relation: government.government_position_held
+    answer_relation: government.government_position_held.office_holder
+    temporal_field: government.government_position_held.from
+    temporal_field_type: date_range
+    answer_type: entity
+    topic_label_hint: "position"
+    answer_label_hint: "office holder"
+    supported_templates: [simple, during, first, last, before, after]
+
+  # ── Organization ────────────────────────────────────────
+  - family: organization_leadership
+    anchor_relation: organization.leadership
+    answer_relation: organization.leadership.office_holder
+    temporal_field: organization.leadership.from
+    temporal_field_type: date_range
+    answer_type: entity
+    topic_label_hint: "organization"
+    answer_label_hint: "leader"
+    supported_templates: [simple, during, first, last, before, after]
+
+# ── Global limits ─────────────────────────────────────────
+limits:
+  max_facts_per_family: 200
+  sample_date_min_year: 1800
+  sample_date_max_year: 2025

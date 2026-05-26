@@ -1222,3 +1222,88 @@ if __name__=='__main__':
     #     '../data/common_data_0822/freebase_relations_filtered.json',
     #     '../data/common_data_0822/fb_relations_domain_range_label.json'
     # )
+
+
+def get_temporal_scope(entity: str, cvt_relation: str) -> dict:
+    """Retrieve CVT-based temporal scope (start/end dates) for an entity-relation pair.
+
+    Freebase encodes temporal facts via Compound Value Types (CVTs). For example,
+    government.government_position_held has .from and .to date attributes on the CVT node.
+
+    Args:
+        entity: Freebase MID (e.g. 'm.0d060g')
+        cvt_relation: Base CVT relation (e.g. 'government.government_position_held')
+
+    Returns:
+        {'from': str | None, 'to': str | None}  — ISO date strings or None
+    """
+    global odbc_conn
+    if odbc_conn is None:
+        initialize_odbc_connection()
+
+    # Common Freebase temporal suffix pairs for CVT relations
+    TEMPORAL_SUFFIXES = [
+        ('from', 'to'),
+        ('start_date', 'end_date'),
+        ('start', 'end'),
+        ('marriage.date', 'divorce.date'),
+    ]
+
+    for start_suffix, end_suffix in TEMPORAL_SUFFIXES:
+        start_rel = f'{cvt_relation}.{start_suffix}'
+        end_rel = f'{cvt_relation}.{end_suffix}'
+
+        query = f"""SPARQL
+        PREFIX ns: <http://rdf.freebase.com/ns/>
+        SELECT DISTINCT ?from_date ?to_date WHERE {{
+            ns:{entity} ns:{cvt_relation} ?cvt .
+            OPTIONAL {{ ?cvt ns:{start_rel} ?from_date . }}
+            OPTIONAL {{ ?cvt ns:{end_rel} ?to_date . }}
+        }} LIMIT 10
+        """
+        try:
+            with odbc_conn.cursor() as cursor:
+                cursor.execute(query)
+                rows = cursor.fetchmany(10)
+            if rows:
+                from_date = rows[0][0] if rows[0][0] else None
+                to_date = rows[0][1] if rows[0][1] else None
+                if from_date or to_date:
+                    return {
+                        'from': str(from_date).split('T')[0] if from_date else None,
+                        'to': str(to_date).split('T')[0] if to_date else None,
+                    }
+        except Exception:
+            continue
+
+    return {'from': None, 'to': None}
+
+
+def get_temporal_relations_of_entity(entity: str) -> List[str]:
+    """Return temporal relations (containing date/time values) for an entity.
+
+    Useful during temporal retrieval to discover which CVT relations hold date facts.
+    """
+    global odbc_conn
+    if odbc_conn is None:
+        initialize_odbc_connection()
+
+    temporal_keywords = ['date', 'time', 'from', 'to', 'start', 'end', 'year']
+    query = f"""SPARQL
+    PREFIX ns: <http://rdf.freebase.com/ns/>
+    SELECT DISTINCT ?rel WHERE {{
+        ns:{entity} ?rel ?obj .
+        FILTER regex(str(?rel), "({'|'.join(temporal_keywords)})", "i")
+        FILTER regex(str(?rel), "http://rdf.freebase.com/ns/")
+    }} LIMIT 50
+    """
+    try:
+        with odbc_conn.cursor() as cursor:
+            cursor.execute(query)
+            rows = cursor.fetchmany(50)
+        return [
+            r[0].replace('http://rdf.freebase.com/ns/', '')
+            for r in rows if r[0]
+        ]
+    except Exception:
+        return []

@@ -3,8 +3,8 @@ import os
 from tqdm import tqdm
 from components.utils import *
 from components.expr_parser import parse_s_expr
-from executor.sparql_executor import execute_query, execute_query_with_odbc
 from executor.logic_form_util import lisp_to_sparql
+# execute_query / execute_query_with_odbc imported lazily within functions
 
 class ParseError(Exception):
     pass
@@ -630,6 +630,7 @@ def execute_webq_s_expr(s_expr):
     try:
         sparql_query = lisp_to_sparql(s_expr)
         print(f'Transformed sparql:\n{sparql_query}')
+        from executor.sparql_executor import execute_query
         denotation = execute_query(sparql_query)
     except:
         denotation = []
@@ -658,6 +659,7 @@ def augment_with_s_expr_webqsp(split, check_execute_accuracy=False):
             if flag_success:
                 hit_num += 1
                 if check_execute_accuracy:
+                    from executor.sparql_executor import execute_query_with_odbc
                     execute_right_flag = False
                     try:
                         execute_ans = execute_query_with_odbc(lisp_to_sparql(instance['SExpr']))

@@ -1,0 +1,11 @@
+{
+  "total_examples": 16,
+  "with_metadata": 16,
+  "by_source": {
+    "human": 16
+  },
+  "by_temporal_type": {
+    "first": 14,
+    "last": 2
+  }
+}

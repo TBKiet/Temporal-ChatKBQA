@@ -1,0 +1,15 @@
+{
+  "total_samples": 888,
+  "by_temporal_type": {
+    "after": 21,
+    "before": 34,
+    "during": 499,
+    "explicit_date": 223,
+    "first": 81,
+    "last": 30
+  },
+  "by_validation_status": {
+    "normalized": 888
+  },
+  "non_empty_topic_entities": 888
+}

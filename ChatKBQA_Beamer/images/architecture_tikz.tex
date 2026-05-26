@@ -1,0 +1,129 @@
+% !TEX root = ../main.tex
+% T-ChatKBQA System Architecture Diagram (TikZ)
+% Included by sections/01_chatkbqa.tex
+
+\begin{tikzpicture}[
+    node distance=0.18cm,
+    % === Module boxes (main pipeline) ===
+    module/.style={
+        draw=blue!60!black, fill=blue!8, rounded corners=3pt,
+        text width=1.85cm, minimum height=1.0cm, align=center, font=\tiny\bfseries, inner sep=2pt
+    },
+    submodule/.style={
+        draw=blue!40, fill=blue!4, rounded corners=2pt,
+        text width=1.9cm, minimum height=0.5cm, align=center, font=\fontsize{5}{6}\selectfont, inner sep=1pt
+    },
+    % === Training pipeline boxes ===
+    trainmod/.style={
+        draw=teal!70!black, fill=teal!8, rounded corners=2pt,
+        text width=1.45cm, minimum height=0.55cm, align=center, font=\fontsize{5}{6}\selectfont, inner sep=2pt
+    },
+    % === Arrows ===
+    arrow/.style={-stealth, blue!60!black, thick},
+    arrowgray/.style={-stealth, gray, thin},
+    arrowteal/.style={-stealth, teal!60!black, thick},
+    % === Labels on arrows ===
+    alabel/.style={font=\fontsize{5}{6}\selectfont\itshape, fill=white, inner sep=0.5pt},
+    % === Group backgrounds ===
+    group/.style={draw=blue!25, rounded corners=5pt, inner sep=4pt},
+    traingroup/.style={draw=teal!50!black, rounded corners=5pt, inner sep=4pt, fill=teal!3},
+]
+
+% ============================================================
+% TRAINING DATA PIPELINE (bottom)
+% ============================================================
+\begin{scope}[local bounding box=trainbox]
+    \node[trainmod] (T0) at (0,0) {Zenodo\\FB+CVT+REV\\$\sim$244M trips};
+    \node[trainmod, right=0.15cm of T0] (T1) {Fact\\Mining\\(22 rels)};
+    \node[trainmod, right=0.15cm of T1] (T2) {Template\\Bank\\(15 tmpl)};
+    \node[trainmod, right=0.15cm of T2] (T3) {Dist.\\Filter\\(2,061)};
+    \node[trainmod, right=0.15cm of T3] (T4) {Train\\Export\\(SFT fmt)};
+
+    \draw[arrowteal] (T0) -- (T1);
+    \draw[arrowteal] (T1) -- (T2);
+    \draw[arrowteal] (T2) -- (T3);
+    \draw[arrowteal] (T3) -- (T4);
+\end{scope}
+
+\begin{pgfonlayer}{background}
+    \node[traingroup, fit=(T0)(T1)(T2)(T3)(T4),
+          label={[teal!60!black, font=\tiny\bfseries]above:Training Data Construction}] {};
+\end{pgfonlayer}
+
+% ============================================================
+% MAIN INFERENCE PIPELINE
+% ============================================================
+\begin{scope}[local bounding box=mainpipe]
+    % --- Input ---
+    \node[module, fill=orange!15, draw=orange!70!black] (M0) at (0, 2.5)
+        {NL Temporal\\Question\\\texttt{"Who was US}\\ \texttt{president..."}};
+
+    % --- Agent Router ---
+    \node[submodule, fill=yellow!15, draw=yellow!60!black, below=0.15cm of M0] (AG)
+        {Agent Router\\(before/after/first/last)};
+
+    % --- Module 2 ---
+    \node[module, right=0.15cm of M0] (M1)
+        {M2: Logical\\Form Gen.\\LLaMA-2-7B\\+ LoRA (k=5)};
+
+    % --- Module 3 ---
+    \node[module, right=0.15cm of M1] (M2)
+        {M3: Extended\\Retrieval\\Entity + Rel\\+ Timestamp};
+
+    % --- Module 4 ---
+    \node[module, right=0.15cm of M2] (M3)
+        {M4: Temporal\\SPARQL Exec\\Virtuoso/\\Freebase};
+
+    % --- Output ---
+    \node[module, fill=green!15, draw=green!60!black, right=0.15cm of M3] (M4)
+        {Answer\\+ Provenance\\+ Interpr.\\SPARQL};
+\end{scope}
+
+% Main pipeline arrows
+\draw[arrow] (M0) -- (M1) node[alabel, midway, above] {\tiny signal};
+\draw[arrow] (M1) -- (M2) node[alabel, midway, above] {\tiny S-expr};
+\draw[arrow] (M2) -- (M3) node[alabel, midway, above] {\tiny res. IDs};
+\draw[arrow] (M3) -- (M4) node[alabel, midway, above] {\tiny results};
+
+% Agent → routing arrows
+\draw[arrow, shorten >=2pt] (M0.south) -- (AG.north);
+\draw[arrowgray, shorten >=2pt] (AG.east) to[out=0, in=270] (M1.south west);
+
+% Training → LLM arrow
+\draw[arrowteal, dashed] (T4.north) to[out=90, in=270] (M1.south)
+    node[alabel, midway, right, fill=white] {\tiny LoRA};
+
+% ============================================================
+% DETAILED SUB-BOXES for Module 3
+% ============================================================
+\begin{scope}[local bounding box=retdetails]
+    \node[submodule, below=0.2cm of M2, text width=1.7cm] (R1)
+        {Entity\\ELQ/SimCSE};
+    \node[submodule, right=0.15cm of R1, text width=1.7cm] (R2)
+        {Relation\\SimCSE};
+    \node[submodule, right=0.15cm of R2, text width=1.7cm] (R3)
+        {Timestamp\\Date Norm.};
+\end{scope}
+\draw[arrowgray, shorten >=2pt] (M2.south) -- (R1.north);
+\draw[arrowgray, shorten >=2pt] (M2.south) -- (R2.north);
+\draw[arrowgray, shorten >=2pt] (M2.south) -- (R3.north);
+
+% ============================================================
+% TEMPORAL OPERATORS LEGEND
+% ============================================================
+\node[draw=purple!60!black, fill=purple!5, rounded corners=3pt,
+      inner sep=3pt, font=\fontsize{5}{6}\selectfont, text width=4.2cm, align=left,
+      below=0.1cm of trainbox.south east, anchor=north east] (OP)
+    {\textbf{Operators:}
+     \texttt{TC}(range) $|$ \texttt{ARGMAX}(last) $|$ \texttt{ARGMIN}(first) $|$
+     \texttt{gt/ge/lt/le}(cmp) $|$ \texttt{JOIN}};
+
+% ============================================================
+% GROUP BACKGROUNDS
+% ============================================================
+\begin{pgfonlayer}{background}
+    \node[group, fit=(M0)(AG)(M1)(M2)(M3)(M4),
+          label={[blue!60!black, font=\small\bfseries]above:T-ChatKBQA System Architecture}] {};
+\end{pgfonlayer}
+
+\end{tikzpicture}

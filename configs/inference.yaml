@@ -1,0 +1,28 @@
+# Inference configuration for Temporal KBQA
+# Used by src/pipeline.py and src/api.py
+
+# Path to fine-tuned LLaMA-2-7b temporal checkpoint
+model_path: models/LLaMA2-7b-tchatkbqa-trial/checkpoint
+
+# Base model path for LoRA adapter loading. If omitted, set TKBQA_BASE_MODEL_PATH.
+base_model_path: null
+
+# FACC1 files for entity retrieval (set to null if not available)
+entity_list_path: data/common_data/entity_list_file_freebase_complete_all_mention
+entity_surface_index_path: data/common_data/surface_map_file_freebase_complete_all_mention
+
+# Retrieval settings
+beam_size: 5
+device: cuda
+
+# Freebase endpoints (configured in config.py; listed here for documentation)
+# sparql_endpoint: http://localhost:8890/sparql
+# odbc_port: 13001
+# elq_url: http://localhost:5688/entity_linking
+
+# Agent settings
+max_retries: 2
+
+# Evaluation
+eval_dataset: TempQuestions
+eval_split: test

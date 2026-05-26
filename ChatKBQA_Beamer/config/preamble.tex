@@ -1,0 +1,16 @@
+\documentclass{beamer}
+
+\usetheme{Antibes}
+\usepackage[utf8]{inputenc}
+\usepackage{textcomp}
+\usepackage{booktabs}   % for \toprule, \midrule, \bottomrule
+\usepackage{xcolor}     % for \textcolor
+\usepackage{array}      % for better table column formatting
+\usepackage{multicol}   % for multi-column table of contents
+\usepackage{tikz}       % for architecture diagrams
+\usetikzlibrary{arrows.meta, positioning, fit, backgrounds, calc, shapes.geometric}
+% Shared pgf layers for background boxes in TikZ diagrams
+\pgfdeclarelayer{background}
+\pgfsetlayers{background,main}
+\usepackage[style=authoryear-comp,backend=biber,maxcitenames=2,giveninits=true,uniquename=false]{biblatex}
+\addbibresource{references.bib}

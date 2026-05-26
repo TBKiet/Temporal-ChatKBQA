@@ -185,3 +185,64 @@ scripts/README_LLaMa2-1.1b.md
 tongji.py
 tongji_webqsp.py
 tongji_cwq.py
+
+# ============================================================
+# T-ChatKBQA project-specific ignores
+# ============================================================
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon
+._*
+
+# LaTeX build artifacts
+*.aux
+*.bbl
+*.bbl-SAVE-ERROR
+*.bcf
+*.blg
+*.fdb_latexmk
+*.fls
+*.log
+*.nav
+*.out
+*.run.xml
+*.snm
+*.synctex*
+*.toc
+*-blx.bib
+*.xdv
+
+# Node.js (markitdown tool, not part of submission)
+node_modules/
+package-lock.json
+package.json
+
+# Assignment / course materials (not part of submission)
+prj_requirments.pdf
+data/prj_requirements.txt
+
+# Out-of-scope reference
+cronQues.md
+cronQues.pdf
+
+# AI coding agent configs (vibecode artifacts)
+AGENTS.md
+CLAUDE.md
+.claude/
+
+# Duplicate PDFs in root
+chatKBQA.pdf
+tempKBQA.pdf
+
+# Markitdown external tool (not part of submission)
+markitdown/
+
+# VS Code workspace
+.vscode/
+
+# DVC cache
+.dvc/cache/
+.dvc/tmp/

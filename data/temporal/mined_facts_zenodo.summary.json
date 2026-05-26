@@ -1,0 +1,105 @@
+{
+  "total_facts": 2949,
+  "by_family": {
+    "award_nomination": 12,
+    "book_author": 788,
+    "film_directed_by": 784,
+    "film_starring": 200,
+    "government_position": 5,
+    "marriage": 3,
+    "music_album": 704,
+    "organization_leadership": 19,
+    "sports_team": 36,
+    "unknown": 398
+  },
+  "by_answer_type": {
+    "entity": 2949
+  },
+  "with_labels": 2949,
+  "with_temporal_start": 0,
+  "with_temporal_end": 0,
+  "unique_topics": 2911,
+  "unique_answers": 2484,
+  "sample_facts": [
+    {
+      "fact_id": "zenodo-music_album-b9f049f81ccd",
+      "family": "music_album",
+      "topic": "The Rolling Stones",
+      "answer": "Little Red Rooster / Surprise\\",
+      "start": "",
+      "end": ""
+    },
+    {
+      "fact_id": "zenodo-music_album-6f38c3154158",
+      "family": "music_album",
+      "topic": "Edyta Górniak",
+      "answer": "Kolekcja 20-lecia Pomatonu",
+      "start": "",
+      "end": ""
+    },
+    {
+      "fact_id": "zenodo-music_album-7735a26a12af",
+      "family": "music_album",
+      "topic": "Sébastien Léger",
+      "answer": "Balkamaniac / Les Frelons",
+      "start": "",
+      "end": ""
+    },
+    {
+      "fact_id": "zenodo-music_album-7aecb5b0aa5e",
+      "family": "music_album",
+      "topic": "Nangarri",
+      "answer": "The Endless Pursuit of the Truth",
+      "start": "",
+      "end": ""
+    },
+    {
+      "fact_id": "zenodo-music_album-e095388848e1",
+      "family": "music_album",
+      "topic": "A Guy Called Gerald",
+      "answer": "To All Things What They Need",
+      "start": "",
+      "end": ""
+    },
+    {
+      "fact_id": "zenodo-music_album-39569b2330c2",
+      "family": "music_album",
+      "topic": "Chitose Hajime",
+      "answer": "Nomad Soul",
+      "start": "",
+      "end": ""
+    },
+    {
+      "fact_id": "zenodo-music_album-21835d9e095a",
+      "family": "music_album",
+      "topic": "Rick Moore & Mr Lucky",
+      "answer": "Live in the USA",
+      "start": "",
+      "end": ""
+    },
+    {
+      "fact_id": "zenodo-music_album-60f7d9f79cc3",
+      "family": "music_album",
+      "topic": "Concerto Vocale",
+      "answer": "Weihnachtshistorie",
+      "start": "",
+      "end": ""
+    },
+    {
+      "fact_id": "zenodo-music_album-ec41259dfcca",
+      "family": "music_album",
+      "topic": "Mr. Moods",
+      "answer": "Psychokiller of Melodies",
+      "start": "",
+      "end": ""
+    },
+    {
+      "fact_id": "zenodo-music_album-7edad2a18b78",
+      "family": "music_album",
+      "topic": "7 Seconds",
+      "answer": "Ourselves",
+      "start": "",
+      "end": ""
+    }
+  ]
+}

@@ -369,12 +369,17 @@ def aggressive_top_k_eval_new(split, predict_file, dataset):
         train_gen_dataset = load_json('data/CWQ/generation/merged/CWQ_train.json')
         test_gen_dataset = load_json('data/CWQ/generation/merged/CWQ_test.json')
         dev_gen_dataset = None
-        # dev_gen_dataset = load_json('data/CWQ/generation/merged/CWQ_dev.json')
     elif dataset == "WebQSP":
         train_gen_dataset = load_json('data/WebQSP/generation/merged/WebQSP_train.json')
         test_gen_dataset = load_json('data/WebQSP/generation/merged/WebQSP_test.json')
         dev_gen_dataset = None
-    
+    elif dataset == "TempQuestions":
+        train_gen_dataset = load_json('data/TempQuestions/generation/merged/TempQuestions_train.json')
+        test_gen_dataset = load_json('data/TempQuestions/generation/merged/TempQuestions_test.json')
+        dev_gen_dataset = None
+    else:
+        raise ValueError(f"Unsupported dataset: {dataset}")
+
     predictions = load_json(predict_file)
 
     print(os.path.dirname(predict_file))
@@ -393,6 +398,9 @@ def aggressive_top_k_eval_new(split, predict_file, dataset):
         train_type_map = {l.lower():t for t,l in train_type_map.items()}
     elif dataset == "WebQSP":
         train_type_map = load_json(f"data/WebQSP/generation/label_maps/WebQSP_train_type_label_map.json")
+        train_type_map = {l.lower():t for t,l in train_type_map.items()}
+    elif dataset == "TempQuestions":
+        train_type_map = load_json(f"data/TempQuestions/generation/label_maps/TempQuestions_train_type_label_map.json")
         train_type_map = {l.lower():t for t,l in train_type_map.items()}
     
     

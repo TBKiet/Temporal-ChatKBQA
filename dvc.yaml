@@ -1,0 +1,135 @@
+# T-ChatKBQA DVC Pipeline
+# ========================
+# Content-addressable pipeline — stages only re-run when deps/params change.
+#
+# Usage:
+#   dvc repro                     # Run full pipeline
+#   dvc repro --single-item mine-facts  # Run only mine-facts stage
+#   dvc repro --downstream generate-candidates  # Run from generate onwards
+#   dvc dag                       # Visualize pipeline DAG
+#   dvc metrics show              # Show evaluation metrics
+#   dvc push                      # Push data to remote
+#   dvc pull                      # Pull data from remote
+#
+# Stage overview:
+#   mine-facts → generate-candidates → verify-samples → filter-and-export
+#
+# Note: verify-samples requires a running Virtuoso SPARQL endpoint.
+#       Set verify.skip=true in params.yaml to bypass.
+#       mine-facts uses Zenodo offline dump (no Virtuoso needed).
+#
+
+stages:
+  mine-facts:
+    desc: "Mine temporal facts from Zenodo idirlab/freebases dump (offline, no Virtuoso)"
+    cmd: >-
+      python scripts/build_temporal_dataset.py mine-facts-zenodo
+      --data-dir ${mine.data_dir}
+      --variant ${mine.variant}
+      --max-per-rel ${mine.max_per_rel}
+      --max-total ${mine.max_total}
+      --output data/temporal/mined_facts_zenodo.json
+      --summary data/temporal/mined_facts_zenodo.summary.json
+    deps:
+      - scripts/build_temporal_dataset.py
+      - src/temporal_data/sparql_miner.py
+      - src/temporal_data/zenodo_loader.py
+      - src/temporal_data/schema.py
+      # Zenodo dataset is expected at data/zenodo/extracted/
+      # Download from: https://zenodo.org/records/idirlab-freebases
+    params:
+      - mine.data_dir
+      - mine.variant
+      - mine.max_per_rel
+      - mine.max_total
+    outs:
+      - data/temporal/mined_facts_zenodo.json:
+          desc: "Raw mined temporal facts from Zenodo triples"
+      - data/temporal/mined_facts_zenodo.summary.json:
+          desc: "Mining statistics (counts by family, relation, date bucket)"
+
+  generate-candidates:
+    desc: "Generate candidate question + S-expression pairs via template bank"
+    cmd: >-
+      python scripts/build_temporal_dataset.py generate-candidates
+      --facts data/temporal/mined_facts_zenodo.json
+      --whitelist ${generate.whitelist}
+      --seed ${generate.seed}
+      --output data/temporal/candidate_samples.json
+      --summary data/temporal/candidate_samples.summary.json
+    deps:
+      - scripts/build_temporal_dataset.py
+      - src/temporal_data/template_bank.py
+      - src/temporal_data/schema.py
+      - configs/relation_whitelist.yaml
+      - data/temporal/mined_facts_zenodo.json
+    params:
+      - generate.seed
+      - generate.whitelist
+    outs:
+      - data/temporal/candidate_samples.json:
+          desc: "Candidate temporal QA samples (question + sexpr + expected answer)"
+      - data/temporal/candidate_samples.summary.json:
+          desc: "Candidate generation statistics"
+
+  verify-samples:
+    desc: "Execute S-expressions against Virtuoso SPARQL to verify answer correctness"
+    cmd: >-
+      python scripts/build_temporal_dataset.py verify-samples
+      --input data/temporal/candidate_samples.json
+      --timeout ${verify.timeout}
+      --output-passed data/temporal/verified_samples.json
+      --output-failed data/temporal/failed_samples.json
+      --summary data/temporal/verification_summary.json
+    deps:
+      - scripts/build_temporal_dataset.py
+      - src/temporal_data/verifier.py
+      - data/temporal/candidate_samples.json
+    params:
+      - verify.timeout
+    outs:
+      - data/temporal/verified_samples.json:
+          desc: "Verified samples — S-expression + KB execution match"
+      - data/temporal/failed_samples.json:
+          desc: "Failed verification — conversion errors, no results, mismatches"
+      - data/temporal/verification_summary.json:
+          desc: "Verification pass/fail/error breakdown"
+    meta:
+      requires: "Running Virtuoso SPARQL at localhost:8890/sparql"
+      skip_if: "Set verify.skip=true in params.yaml and use dvc repro --downstream filter-and-export"
+
+  filter-and-export:
+    desc: "Apply distribution filter and export to instruction-tuning format"
+    cmd: >-
+      python scripts/build_temporal_dataset.py filter-and-export
+      --input data/temporal/verified_samples.json
+      --max-per-family ${filter.max_per_family}
+      --max-per-type ${filter.max_per_type}
+      --max-per-date-bucket ${filter.max_per_date_bucket}
+      --seed ${filter.seed}
+      --output LLMs/data/TChatKBQA_Freebase_NQ_train/examples.json
+      --summary LLMs/data/TChatKBQA_Freebase_NQ_train/summary.json
+    deps:
+      - scripts/build_temporal_dataset.py
+      - src/temporal_data/distribution_filter.py
+      - src/temporal_data/training.py
+      - data/temporal/verified_samples.json
+    params:
+      - filter.max_per_family
+      - filter.max_per_type
+      - filter.max_per_date_bucket
+      - filter.seed
+    outs:
+      - LLMs/data/TChatKBQA_Freebase_NQ_train/examples.json:
+          desc: "Final training examples in instruction-tuning format"
+      - LLMs/data/TChatKBQA_Freebase_NQ_train/summary.json:
+          desc: "Training set statistics"
+
+# ── Metrics files (populated by scripts/run_eval.py) ────────────────
+# Usage:
+#   dvc metrics show                          # Show all metrics
+#   dvc metrics diff                          # Compare with previous run
+metrics:
+  - metrics/validity.json
+  - metrics/grounding.json
+  - metrics/answers.json

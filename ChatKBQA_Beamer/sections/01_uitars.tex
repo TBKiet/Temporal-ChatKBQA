@@ -1,0 +1,150 @@
+% !TEX root = ../main.tex
+
+% UI-TARS Section
+\section{UI-TARS}
+
+% What is UI-TARS
+\subsection{What is UI-TARS?}
+\begin{frame}{\insertsubsection}
+  \begin{itemize}
+    \item \textbf{UI-TARS}: User Interface - Task Automation and Reasoning System
+    \item A \textbf{native vision-based GUI Agent} developed by ByteDance
+    \item \textbf{End-to-End VLM}: takes screenshots + user instructions $\rightarrow$ directly outputs mouse/keyboard actions
+    \item Works without HTML/DOM or Accessibility Tree
+  \end{itemize}
+\end{frame}
+
+% Problem & Motivation
+\subsection{Problem \& Motivation}
+\begin{frame}{\insertsubsection}
+  \begin{itemize}
+    \item \textbf{Metadata Dependency}: Old agents require HTML DOM or Accessibility Tree — fails on native apps, remote desktops
+    \item \textbf{Modular Pipeline}: Separate Vision, Memory, Action modules cause information loss
+    \item \textbf{Process Data Scarcity}: Lack of datasets capturing human reasoning and action sequences on computers
+    \item \textbf{Solution}: Single End-to-End model (screenshot + instruction $\rightarrow$ actions)
+  \end{itemize}
+\end{frame}
+
+% Architecture - Overview
+\subsection{Architecture}
+\begin{frame}{Architecture Overview}
+  \centering
+  \includegraphics[width=1\textwidth,height=0.9\textheight,keepaspectratio]{images/uitars-arch.png}
+  \vspace{0.2cm}
+\end{frame}
+
+% Architecture - Perception
+\begin{frame}{A. Enhanced Perception}
+  Specialized vision training for GUI understanding:
+  \begin{itemize}
+    \item \textbf{Element Description}: Detailed component descriptions (buttons, icons) with function and position
+    \item \textbf{Dense Captioning}: Understanding full interface hierarchy and relationships
+    \item \textbf{State Transition Captioning}: Comparing consecutive screenshots to detect changes
+    \item \textbf{Set-of-Mark (SoM)}: Element localization via visual markers
+  \end{itemize}
+\end{frame}
+
+% Architecture - Action Space
+\begin{frame}{B. Unified Action Space}
+  Cross-platform standardized actions:
+  \begin{itemize}
+    \item Simplified action space: \texttt{CLICK(x,y)}, \texttt{DRAG(start, end)}, \texttt{TYPE(text)}, \texttt{SCROLL}
+    \item Normalized coordinates $[0,1]$ — resolution-independent
+    \item Works seamlessly on Windows, Android, and Web
+  \end{itemize}
+\end{frame}
+
+% Architecture - System-2 Reasoning
+\begin{frame}{C. System-2 Reasoning}
+  \textbf{Deliberate decision-making} before action (Chain-of-Thought):
+  \begin{itemize}
+    \item Before action $a_t$, generates reasoning $t_t$
+    \item \textbf{Reasoning Patterns}:
+      \begin{itemize}
+        \item Task Decomposition
+        \item Milestone Recognition
+        \item Reflection (self-correction)
+        \item Trial \& Error
+      \end{itemize}
+  \end{itemize}
+\end{frame}
+
+% Architecture - Iterative Refinement
+\begin{frame}{D. Iterative Refinement using Online Traces}
+  \textbf{Self-improving} training loop to overcome data bottleneck:
+  \begin{enumerate}
+    \item \textbf{Online Trace Bootstrapping}: Model runs on hundreds of VMs to perform tasks autonomously
+    \item \textbf{Filtering}: Uses rules, VLM scoring, and human review to keep only quality trajectories
+    \item \textbf{Reflection Tuning \& DPO}:
+      \begin{itemize}
+        \item Humans/Teacher model correct failed actions
+        \item Creates \{Wrong $\rightarrow$ Correct\} pairs
+        \item Uses DPO (Direct Preference Optimization) to teach model to avoid mistakes
+      \end{itemize}
+  \end{enumerate}
+\end{frame}
+
+% Strengths & Contributions
+\subsection{Strengths \& Key Contributions}
+\begin{frame}{\insertsubsection}
+  \begin{itemize}
+    \item \textbf{Pure Vision-Based}: No API/DOM access needed — works on Citrix, Remote Desktop, games
+    \item \textbf{Cross-Platform}: Single model handles Web, Desktop (Excel), and Android tasks
+    \item \textbf{Integrated Framework}: Seamlessly combines perception, action, reasoning, and memory
+    \item \textbf{4 Technical Innovations}:
+      \begin{enumerate}
+        \item Enhanced Perception
+        \item Unified Action Modeling
+        \item System-2 Reasoning
+        \item Iterative Training with Online Traces
+      \end{enumerate}
+  \end{itemize}
+\end{frame}
+
+% Limitations
+\subsection{Limitations}
+\begin{frame}{\insertsubsection}
+  \begin{itemize}
+    \item \textbf{Latency}: High-res image processing causes slower response vs. API/DOM-based agents
+    \item \textbf{Computational Cost}: Requires powerful GPU for continuous inference
+    \item \textbf{Pixel Precision}: May miss very small UI elements (few pixels)
+    \item \textbf{Safety Risks}: Direct mouse/keyboard control — hallucinations can cause harmful actions (file deletion, wrong emails)
+  \end{itemize}
+\end{frame}
+
+% Experiments
+\subsection{Experiments}
+
+% OSWorld Results
+\begin{frame}{OSWorld (Desktop Automation)}
+  \centering
+  \includegraphics[width=0.9\textwidth,height=0.7\textheight,keepaspectratio]{images/uitars-osworld.png}
+
+  \vspace{0.3cm}
+  \small
+  UI-TARS: \textbf{24-25\%} success rate \\
+  Claude 3.5: $\sim$15-22\% | GPT-4o: $\sim$12-15\%
+\end{frame}
+
+% Mind2Web Results
+\begin{frame}{Mind2Web (Web Tasks)}
+  \begin{itemize}
+    \item Element Accuracy: \textbf{80\%}
+    \item Outperforms specialized models like SeeAct
+  \end{itemize}
+
+  \vspace{0.5cm}
+  \centering
+  \includegraphics[width=0.8\textwidth,height=0.5\textheight,keepaspectratio]{images/uitars-mind2web.png}
+\end{frame}
+
+% AndroidWorld Results
+\begin{frame}{AndroidWorld (Mobile Tasks)}
+  \centering
+  \includegraphics[width=0.9\textwidth,height=0.7\textheight,keepaspectratio]{images/uitars-android.png}
+
+  \vspace{0.3cm}
+  \small
+  UI-TARS: \textbf{46.6} | GPT-4o: 34.5 \\
+  Demonstrates cross-platform flexibility
+\end{frame}

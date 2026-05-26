@@ -1,12 +1,25 @@
 import random
+import logging
 
-import torch
 import numpy as np
 
-from transformers import (
-    AutoTokenizer,
-    AutoConfig,
-)
+logger = logging.getLogger(__name__)
+
+try:
+    import torch
+except ImportError:
+    torch = None
+    logger.warning("torch not installed — training/inference paths unavailable")
+
+try:
+    from transformers import (
+        AutoTokenizer,
+        AutoConfig,
+    )
+except ImportError:
+    AutoTokenizer = None
+    AutoConfig = None
+    logger.warning("transformers not installed — training/inference paths unavailable")
 
 ELQ_SERVICE_URL = "http://localhost:5688/entity_linking"
 FREEBASE_SPARQL_WRAPPER_URL = "http://localhost:8890/sparql"
@@ -15,12 +28,15 @@ FREEBASE_ODBC_PORT = "13001"
 def set_seed(args):
     random.seed(args.seed)
     np.random.seed(args.seed)
-    torch.manual_seed(args.seed)
-    if args.n_gpu > 0:
-        torch.cuda.manual_seed_all(args.seed)
+    if torch is not None:
+        torch.manual_seed(args.seed)
+        if args.n_gpu > 0:
+            torch.cuda.manual_seed_all(args.seed)
 
 
 def to_list(tensor):
+    if torch is None:
+        return list(tensor) if hasattr(tensor, '__iter__') else [tensor]
     return tensor.detach().cpu().tolist()
 
 def register_args(parser):
@@ -195,6 +211,8 @@ def validate_args(args):
         args.bootstrapping_update_epochs = bootstrapping_update_epochs
 
 def load_untrained_model(args):
+    if AutoConfig is None or AutoTokenizer is None:
+        raise ImportError("transformers not installed — cannot load model")
     args.model_type = args.model_type.lower()
     config = AutoConfig.from_pretrained(
         args.config_name if args.config_name else args.model_name_or_path,

@@ -1,0 +1,15 @@
+{
+  "total_examples": 268,
+  "with_metadata": 268,
+  "by_source": {
+    "human": 268
+  },
+  "by_temporal_type": {
+    "after": 7,
+    "before": 14,
+    "during": 133,
+    "explicit_date": 80,
+    "first": 26,
+    "last": 8
+  }
+}

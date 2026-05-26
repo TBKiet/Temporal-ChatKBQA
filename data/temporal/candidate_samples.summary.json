@@ -1,0 +1,29 @@
+{
+  "total_candidates": 5213,
+  "by_template_family": {
+    "first": 1715,
+    "last": 1779,
+    "simple": 1719
+  },
+  "by_temporal_type": {
+    "before": 1,
+    "during": 28,
+    "explicit_date": 5,
+    "first": 1716,
+    "last": 1788,
+    "unknown": 1675
+  },
+  "by_relation_family": {
+    "award_nomination": 25,
+    "book_author": 1602,
+    "film_directed_by": 1602,
+    "film_starring": 403,
+    "government_position": 8,
+    "marriage": 5,
+    "music_album": 1448,
+    "organization_leadership": 39,
+    "sports_team": 81
+  },
+  "unique_questions": 5212,
+  "unique_expressions": 4261
+}

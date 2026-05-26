@@ -4,7 +4,6 @@ import os
 import shutil
 import re
 from typing import List
-from executor.sparql_executor import get_label_with_odbc
 
 
 def dump_to_bin(obj, fname):
@@ -132,6 +131,7 @@ def vanilla_sexpr_linearization_method(expr, entity_label_map={}, relation_label
                 t = entity_label_map[t]
             else:
                 # name = get_label(t)
+                from executor.sparql_executor import get_label_with_odbc
                 name = get_label_with_odbc(t)
                 if name is not None:
                     entity_label_map[t] = name
